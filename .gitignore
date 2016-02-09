@@ -1,0 +1,16 @@
+# Windows stuff
+Thumbs.db
+
+# Visual studio stuff
+*.suo
+*.DotSettings.user
+*.user
+*.vsp
+*.psess
+bin
+tmp
+obj
+
+StyleCop.cache
+
+packages/

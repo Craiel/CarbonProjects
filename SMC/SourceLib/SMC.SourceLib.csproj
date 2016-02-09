@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9594A5CE-FB23-4BF3-855E-DC124AB431AA}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SMC.SourceLib</RootNamespace>
+    <AssemblyName>SMC.SourceLib</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Constants.cs" />
+    <Compile Include="Contracts\ILine.cs" />
+    <Compile Include="Intermediate\TempAttribute.cs" />
+    <Compile Include="Intermediate\TempClass.cs" />
+    <Compile Include="Intermediate\TempClassContent.cs" />
+    <Compile Include="Intermediate\TempComment.cs" />
+    <Compile Include="Intermediate\TempData.cs" />
+    <Compile Include="Intermediate\TempDataBlock.cs" />
+    <Compile Include="Intermediate\TempDataSegment.cs" />
+    <Compile Include="Intermediate\TempDataType.cs" />
+    <Compile Include="Intermediate\TempDeclaration.cs" />
+    <Compile Include="Intermediate\TempFile.cs" />
+    <Compile Include="Intermediate\TempFileStructureType.cs" />
+    <Compile Include="Intermediate\TempFunction.cs" />
+    <Compile Include="Intermediate\TempFunctionAttribute.cs" />
+    <Compile Include="Intermediate\TempProject.cs" />
+    <Compile Include="Intermediate\TempProjectFileEntry.cs" />
+    <Compile Include="Intermediate\TempUnknown.cs" />
+    <Compile Include="Patching\Patch.cs" />
+    <Compile Include="Patching\PatchExpression.cs" />
+    <Compile Include="PostProcessing\BasePostProcessor.cs" />
+    <Compile Include="PostProcessing\BaseProcessingData.cs" />
+    <Compile Include="Contracts\IPostProcessor.cs" />
+    <Compile Include="Contracts\IProcessingData.cs" />
+    <Compile Include="Contracts\IProcessLineData.cs" />
+    <Compile Include="PostProcessing\Line.cs" />
+    <Compile Include="PostProcessing\LineUpdateMode.cs" />
+    <Compile Include="PostProcessing\ProcessingInstruction.cs" />
+    <Compile Include="PostProcessing\ProcessLineData.cs" />
+    <Compile Include="PostProcessors\Indentation.cs" />
+    <Compile Include="PostProcessors\IndentationData.cs" />
+    <Compile Include="PostProcessors\IndentationInstruction.cs" />
+    <Compile Include="PostProcessors\Patcher.cs" />
+    <Compile Include="PostProcessors\PatcherData.cs" />
+    <Compile Include="PostProcessors\PatcherInstruction.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sharp\Sharp.Class.cs" />
+    <Compile Include="Sharp\Sharp.Data.cs" />
+    <Compile Include="Sharp\Sharp.File.cs" />
+    <Compile Include="Sharp\Sharp.Method.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\CarbonCore\External\Newtonsoft.Json\Newtonsoft.Json.csproj">
+      <Project>{eeea67f9-9089-481d-a4dc-0966dec9fd7d}</Project>
+      <Name>Newtonsoft.Json</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\CarbonCore\Utils\CarbonCore.Utils.csproj">
+      <Project>{e05836d9-0bb3-4bfa-89e6-f5ed40a9d93c}</Project>
+      <Name>CarbonCore.Utils</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

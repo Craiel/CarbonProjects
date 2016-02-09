@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EB5FAFA6-AF5D-45E6-9E97-905104498320}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SMC.SourceTranslation</RootNamespace>
+    <AssemblyName>SMC.SourceTranslation</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>SMC.SourceTranslation.Entry</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Config.cs" />
+    <Compile Include="Constants.cs" />
+    <Compile Include="Contracts\IConfig.cs" />
+    <Compile Include="Contracts\IMain.cs" />
+    <Compile Include="Contracts\ITranslation.cs" />
+    <Compile Include="IoC\IoC.cs" />
+    <Compile Include="Logic\TranslationDataIterator.cs" />
+    <Compile Include="Logic\Translation.Class.cs" />
+    <Compile Include="Logic\TranslationData.cs" />
+    <Compile Include="MCData.cs" />
+    <Compile Include="Main.cs" />
+    <Compile Include="Logic\Translation.cs" />
+    <Compile Include="Logic\Translation.File.cs" />
+    <Compile Include="Logic\Translation.Function.cs" />
+    <Compile Include="Logic\Translation.Member.cs" />
+    <Compile Include="Logic\Translation.Shared.cs" />
+    <Compile Include="TranslationConfig.cs" />
+    <Compile Include="Entry.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\CarbonCore\External\Newtonsoft.Json\Newtonsoft.Json.csproj">
+      <Project>{eeea67f9-9089-481d-a4dc-0966dec9fd7d}</Project>
+      <Name>Newtonsoft.Json</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\CarbonCore\GrammarParser\CarbonCore.GrammarParser.csproj">
+      <Project>{50c22f18-89f6-48f3-a29f-ca25fdaddb90}</Project>
+      <Name>CarbonCore.GrammarParser</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\CarbonCore\ToolFramework\CarbonCore.ToolFramework.csproj">
+      <Project>{e4643df2-d2db-4e99-ab4b-d8ce4fd94d81}</Project>
+      <Name>CarbonCore.ToolFramework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\CarbonCore\ToolFramework\Console\CarbonCore.ToolFramework.Console.csproj">
+      <Project>{1ff6d0da-b801-4956-a015-ce04fc7fb93f}</Project>
+      <Name>CarbonCore.ToolFramework.Console</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\CarbonCore\Utils\CarbonCore.Utils.csproj">
+      <Project>{e05836d9-0bb3-4bfa-89e6-f5ed40a9d93c}</Project>
+      <Name>CarbonCore.Utils</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\CarbonCore\Utils\Edge\CarbonCore.Utils.Edge.csproj">
+      <Project>{a46b19fc-eb4a-4bda-97e1-5b522fb4cc6b}</Project>
+      <Name>CarbonCore.Utils.Edge</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\CarbonCore\Utils\Edge\CommandLine\CarbonCore.Utils.Edge.CommandLine.csproj">
+      <Project>{e99c6721-99a5-4dc3-bd9d-dc88f65d217a}</Project>
+      <Name>CarbonCore.Utils.Edge.CommandLine</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SourceLib\SMC.SourceLib.csproj">
+      <Project>{9594a5ce-fb23-4bf3-855e-dc124ab431aa}</Project>
+      <Name>SMC.SourceLib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
