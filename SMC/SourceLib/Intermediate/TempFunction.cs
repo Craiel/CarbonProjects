@@ -28,6 +28,9 @@
         [DefaultValue(null)]
         public List<TempFunctionAttribute> FunctionAttributes { get; set; }
 
+        [DefaultValue(null)]
+        public string TemplateArgument { get; set; }
+
         public void AddFunctionAttribute(TempFunctionAttribute value)
         {
             if (this.FunctionAttributes == null)

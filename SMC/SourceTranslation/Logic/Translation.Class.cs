@@ -406,6 +406,21 @@
                                         // Fall through to the exception, comma was not expected here
                                         break;
                                     }
+
+                                case JavaTermKey.Less:
+                                    {
+                                        string templateArgument;
+                                        if (this.TranslateTemplateArgument(data, out templateArgument))
+                                        {
+                                            declarationData.TemplateArgument = templateArgument;
+                                        }
+                                        else
+                                        {
+                                            throw new InvalidDataException("Tried template argument but failed");
+                                        }
+
+                                        continue;
+                                    }
                             }
 
                             throw new InvalidDataException("Unhandled key: " + token);

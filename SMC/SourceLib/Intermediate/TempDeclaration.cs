@@ -26,5 +26,8 @@
 
         [DefaultValue(null)]
         public TempDataBlock Contents { get; set; }
+
+        [DefaultValue(null)]
+        public string TemplateArgument { get; set; }
     }
 }

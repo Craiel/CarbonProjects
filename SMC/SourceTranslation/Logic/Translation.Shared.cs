@@ -91,6 +91,54 @@
             target.ReturnType += token.Contents;
         }
 
+        private bool TranslateTemplateArgument(TranslationData data, out string argumentString)
+        {
+            TranslationDataIterator iterator = data.GetIterator();
+            Token token;
+            argumentString = string.Empty;
+            while (iterator.Next(out token))
+            {
+                var segment = new TempDataSegment();
+                
+                switch (token.Term.Type)
+                {
+                    case TermType.Identifier:
+                        {
+                            argumentString += token.Contents;
+                            break;
+                        }
+
+                    case TermType.Key:
+                        {
+                            JavaTermKey key = this.GetTermKey(token);
+                            segment.Key = (int)key;
+                            switch (key)
+                            {
+                                case JavaTermKey.Dot:
+                                    {
+                                        argumentString += token.Contents;
+                                        break;
+                                    }
+
+                                case JavaTermKey.Greater:
+                                    {
+                                        return true;
+                                    }
+
+                                default:
+                                    {
+                                        throw new InvalidDataException("Unpexpected token in Template Argument: " + token.Contents);
+                                    }
+                            }
+
+                            break;
+                        }
+                }
+            }
+
+            return false;
+        }
+
         private void HandleIdentifierForClassContent(TempClassContent target, Token token, bool inThrows)
         {
             if (inThrows)

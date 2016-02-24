@@ -118,7 +118,22 @@
                                 case JavaTermKey.BracketLeft:
                                 case JavaTermKey.BracketRight:
                                     {
-                                        HandleBracketForClassContent(functionData, token);
+                                        this.HandleBracketForClassContent(functionData, token);
+                                        continue;
+                                    }
+
+                                case JavaTermKey.Less:
+                                    {
+                                        string templateArgument;
+                                        if (this.TranslateTemplateArgument(data, out templateArgument))
+                                        {
+                                            functionData.TemplateArgument = templateArgument;
+                                        }
+                                        else
+                                        {
+                                            throw new InvalidDataException("Tried template argument but failed");
+                                        }
+
                                         continue;
                                     }
                             }
