@@ -99,7 +99,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\CarbonCore\CFS\CarbonCore.CFS.csproj">
+    <ProjectReference Include="..\..\CarbonCore\Source\CFS\CarbonCore.CFS.csproj">
       <Project>{06d0ca41-40b7-4c49-a230-5dd1540d9767}</Project>
       <Name>CarbonCore.CFS</Name>
     </ProjectReference>

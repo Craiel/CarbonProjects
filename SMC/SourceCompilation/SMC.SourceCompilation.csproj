@@ -69,23 +69,23 @@
       <Project>{eeea67f9-9089-481d-a4dc-0966dec9fd7d}</Project>
       <Name>Newtonsoft.Json</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\CarbonCore\ToolFramework\CarbonCore.ToolFramework.csproj">
+    <ProjectReference Include="..\..\..\CarbonCore\Source\ToolFramework\CarbonCore.ToolFramework.csproj">
       <Project>{e4643df2-d2db-4e99-ab4b-d8ce4fd94d81}</Project>
       <Name>CarbonCore.ToolFramework</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\CarbonCore\ToolFramework\Console\CarbonCore.ToolFramework.Console.csproj">
+    <ProjectReference Include="..\..\..\CarbonCore\Source\ToolFramework\Console\CarbonCore.ToolFramework.Console.csproj">
       <Project>{1ff6d0da-b801-4956-a015-ce04fc7fb93f}</Project>
       <Name>CarbonCore.ToolFramework.Console</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\CarbonCore\Utils\CarbonCore.Utils.csproj">
+    <ProjectReference Include="..\..\..\CarbonCore\Source\Utils\CarbonCore.Utils.csproj">
       <Project>{e05836d9-0bb3-4bfa-89e6-f5ed40a9d93c}</Project>
       <Name>CarbonCore.Utils</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\CarbonCore\Utils\Edge\CarbonCore.Utils.Edge.csproj">
+    <ProjectReference Include="..\..\..\CarbonCore\Source\Utils\Edge\CarbonCore.Utils.Edge.csproj">
       <Project>{a46b19fc-eb4a-4bda-97e1-5b522fb4cc6b}</Project>
       <Name>CarbonCore.Utils.Edge</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\CarbonCore\Utils\Edge\CommandLine\CarbonCore.Utils.Edge.CommandLine.csproj">
+    <ProjectReference Include="..\..\..\CarbonCore\Source\Utils\Edge\CommandLine\CarbonCore.Utils.Edge.CommandLine.csproj">
       <Project>{e99c6721-99a5-4dc3-bd9d-dc88f65d217a}</Project>
       <Name>CarbonCore.Utils.Edge.CommandLine</Name>
     </ProjectReference>

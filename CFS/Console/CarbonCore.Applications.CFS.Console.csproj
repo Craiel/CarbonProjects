@@ -52,15 +52,15 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\CarbonCore\CFS\CarbonCore.CFS.csproj">
+    <ProjectReference Include="..\..\..\CarbonCore\Source\CFS\CarbonCore.CFS.csproj">
       <Project>{06d0ca41-40b7-4c49-a230-5dd1540d9767}</Project>
       <Name>CarbonCore.CFS</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\CarbonCore\ToolFramework\CarbonCore.ToolFramework.csproj">
+    <ProjectReference Include="..\..\..\CarbonCore\Source\ToolFramework\CarbonCore.ToolFramework.csproj">
       <Project>{e4643df2-d2db-4e99-ab4b-d8ce4fd94d81}</Project>
       <Name>CarbonCore.ToolFramework</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\CarbonCore\ToolFramework\Console\CarbonCore.ToolFramework.Console.csproj">
+    <ProjectReference Include="..\..\..\CarbonCore\Source\ToolFramework\Console\CarbonCore.ToolFramework.Console.csproj">
       <Project>{1ff6d0da-b801-4956-a015-ce04fc7fb93f}</Project>
       <Name>CarbonCore.ToolFramework.Console</Name>
     </ProjectReference>

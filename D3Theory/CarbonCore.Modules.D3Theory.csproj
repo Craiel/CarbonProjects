@@ -87,11 +87,11 @@
       <Project>{eeea67f9-9089-481d-a4dc-0966dec9fd7d}</Project>
       <Name>Newtonsoft.Json</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\CarbonCore\Utils\CarbonCore.Utils.csproj">
+    <ProjectReference Include="..\..\CarbonCore\Source\Utils\CarbonCore.Utils.csproj">
       <Project>{e05836d9-0bb3-4bfa-89e6-f5ed40a9d93c}</Project>
       <Name>CarbonCore.Utils</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\CarbonCore\Utils\Edge\CarbonCore.Utils.Edge.csproj">
+    <ProjectReference Include="..\..\CarbonCore\Source\Utils\Edge\CarbonCore.Utils.Edge.csproj">
       <Project>{a46b19fc-eb4a-4bda-97e1-5b522fb4cc6b}</Project>
       <Name>CarbonCore.Utils.Edge</Name>
     </ProjectReference>

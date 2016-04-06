@@ -39,17 +39,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MCSync", "MCSync", "{965375
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SMC", "SMC", "{2F59132B-6BB9-463D-AD10-0FA388F53432}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarbonCore.Utils", "..\CarbonCore\Utils\CarbonCore.Utils.csproj", "{E05836D9-0BB3-4BFA-89E6-F5ED40A9D93C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarbonCore.Utils", "..\CarbonCore\Source\Utils\CarbonCore.Utils.csproj", "{E05836D9-0BB3-4BFA-89E6-F5ED40A9D93C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarbonCore.Resources", "..\CarbonCore\Resources\CarbonCore.Resources.csproj", "{AAB4906E-DE39-4678-A155-14579CC7F4EC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarbonCore.Resources", "..\CarbonCore\Source\Resources\CarbonCore.Resources.csproj", "{AAB4906E-DE39-4678-A155-14579CC7F4EC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarbonCore.Utils.Edge", "..\CarbonCore\Utils\Edge\CarbonCore.Utils.Edge.csproj", "{A46B19FC-EB4A-4BDA-97E1-5B522FB4CC6B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarbonCore.Utils.Edge", "..\CarbonCore\Source\Utils\Edge\CarbonCore.Utils.Edge.csproj", "{A46B19FC-EB4A-4BDA-97E1-5B522FB4CC6B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarbonCore.ToolFramework", "..\CarbonCore\ToolFramework\CarbonCore.ToolFramework.csproj", "{E4643DF2-D2DB-4E99-AB4B-D8CE4FD94D81}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarbonCore.ToolFramework", "..\CarbonCore\Source\ToolFramework\CarbonCore.ToolFramework.csproj", "{E4643DF2-D2DB-4E99-AB4B-D8CE4FD94D81}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarbonCore.ToolFramework.Windows", "..\CarbonCore\ToolFramework\Windows\CarbonCore.ToolFramework.Windows.csproj", "{5F12FA78-59FC-4BF5-8312-0131E0350A63}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarbonCore.ToolFramework.Windows", "..\CarbonCore\Source\ToolFramework\Windows\CarbonCore.ToolFramework.Windows.csproj", "{5F12FA78-59FC-4BF5-8312-0131E0350A63}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarbonCore.ToolFramework.Console", "..\CarbonCore\ToolFramework\Console\CarbonCore.ToolFramework.Console.csproj", "{1FF6D0DA-B801-4956-A015-CE04FC7FB93F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarbonCore.ToolFramework.Console", "..\CarbonCore\Source\ToolFramework\Console\CarbonCore.ToolFramework.Console.csproj", "{1FF6D0DA-B801-4956-A015-CE04FC7FB93F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Newtonsoft.Json", "..\CarbonCore\External\Newtonsoft.Json\Newtonsoft.Json.csproj", "{EEEA67F9-9089-481D-A4DC-0966DEC9FD7D}"
 EndProject
@@ -57,13 +57,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cyotek.Data.Nbt", "ColladaM
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ColladaMC", "ColladaMC", "{3270570F-3BEF-4DCC-AF97-8B6F07FD6E70}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarbonCore.ContentServices", "..\CarbonCore\ContentServices\CarbonCore.ContentServices.csproj", "{5D3507BD-D8DD-4255-A262-8E360E936F10}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarbonCore.ContentServices", "..\CarbonCore\Source\ContentServices\CarbonCore.ContentServices.csproj", "{5D3507BD-D8DD-4255-A262-8E360E936F10}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarbonCore.Processing", "..\CarbonCore\Processing\CarbonCore.Processing.csproj", "{4DB8D196-1F50-493F-9FFB-40E1E503EE87}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarbonCore.Processing", "..\CarbonCore\Source\Processing\CarbonCore.Processing.csproj", "{4DB8D196-1F50-493F-9FFB-40E1E503EE87}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarbonCore.Utils.Edge.CommandLine", "..\CarbonCore\Utils\Edge\CommandLine\CarbonCore.Utils.Edge.CommandLine.csproj", "{E99C6721-99A5-4DC3-BD9D-DC88F65D217A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarbonCore.Utils.Edge.CommandLine", "..\CarbonCore\Source\Utils\Edge\CommandLine\CarbonCore.Utils.Edge.CommandLine.csproj", "{E99C6721-99A5-4DC3-BD9D-DC88F65D217A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarbonCore.GrammarParser", "..\CarbonCore\GrammarParser\CarbonCore.GrammarParser.csproj", "{50C22F18-89F6-48F3-A29F-CA25FDADDB90}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarbonCore.GrammarParser", "..\CarbonCore\Source\GrammarParser\CarbonCore.GrammarParser.csproj", "{50C22F18-89F6-48F3-A29F-CA25FDADDB90}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Utils", "Utils", "{729EA71E-2F63-4F2C-A368-97F60BEAFE13}"
 EndProject
@@ -71,11 +71,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ToolFramework", "ToolFramew
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "External", "External", "{90C3F78D-6CC7-4264-B2DE-F3545F0ABAF2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarbonCore.Utils.Edge.DirectX", "..\CarbonCore\Utils\Edge\DirectX\CarbonCore.Utils.Edge.DirectX.csproj", "{C3E6C35A-FE50-481B-9B6A-559DFDFFB52E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarbonCore.Utils.Edge.DirectX", "..\CarbonCore\Source\Utils\Edge\DirectX\CarbonCore.Utils.Edge.DirectX.csproj", "{C3E6C35A-FE50-481B-9B6A-559DFDFFB52E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarbonCore.CFS", "..\CarbonCore\CFS\CarbonCore.CFS.csproj", "{06D0CA41-40B7-4C49-A230-5DD1540D9767}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarbonCore.CFS", "..\CarbonCore\Source\CFS\CarbonCore.CFS.csproj", "{06D0CA41-40B7-4C49-A230-5DD1540D9767}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarbonCore.Utils.Edge.WPF", "..\CarbonCore\Utils\Edge\WPF\CarbonCore.Utils.Edge.WPF.csproj", "{75FF83F3-C123-4982-91F7-09D0F8A66536}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarbonCore.Utils.Edge.WPF", "..\CarbonCore\Source\Utils\Edge\WPF\CarbonCore.Utils.Edge.WPF.csproj", "{75FF83F3-C123-4982-91F7-09D0F8A66536}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

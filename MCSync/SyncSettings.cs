@@ -4,7 +4,7 @@
     using CarbonCore.ContentServices.Logic.DataEntryLogic;
 
     [DataEntry]
-    public class SyncSettings : DataEntry
+    public class SyncSettings : SmartDataEntry
     {
         public SyncSettings()
         {
