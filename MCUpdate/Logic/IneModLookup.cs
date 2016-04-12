@@ -99,7 +99,7 @@
             }
             catch (Exception e)
             {
-                Diagnostic.Error("Failed to download mod Info");
+                Diagnostic.Error("Failed to download mod Info: {0}", e);
                 return;
             }
 
@@ -110,6 +110,12 @@
                 {
                     if (string.IsNullOrEmpty(entry.ModId))
                     {
+                        continue;
+                    }
+
+                    if (entry.Version.ToLowerInvariant().Contains("dev-only"))
+                    {
+                        // Ignore dev only versions for our case
                         continue;
                     }
 

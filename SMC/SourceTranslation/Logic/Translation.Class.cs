@@ -375,7 +375,7 @@
                                         this.TranslateParenthesisContent(data, declarationData.Arguments);
                                         continue;
                                     }
-
+                                    
                                 case JavaTermKey.BraceRight:
                                     {
                                         // We are leaving the scope, exit

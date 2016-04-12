@@ -87,6 +87,8 @@
         // -------------------------------------------------------------------
         private void TranslateFile(TempProject project, CarbonFile sourceFile, CarbonFile targetFile)
         {
+            Diagnostic.RegisterThread("Translate." + sourceFile.FileName);
+
             CarbonDirectory targetRelativeSubDir = targetFile.GetDirectory() ?? new CarbonDirectory(string.Empty);
             CarbonDirectory fullTargetPath = this.targetDirectory.ToDirectory(this.config.Current.IntermediateSubDirectory, targetRelativeSubDir);
             CarbonFile fullTargetFile = fullTargetPath.ToFile(targetFile.FileName + TempExtension);
@@ -134,6 +136,8 @@
                 System.Diagnostics.Trace.TraceError("Failed to translate {0}: {1}", fileEntry.File, e);
                 this.SaveTempFile(data, new TempFileFull() { Name = data.TargetFile.FileName });
             }
+
+            Diagnostic.UnregisterThread();
         }
 
         private void SaveTempFile(TranslationData data, TempFileFull file)

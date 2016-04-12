@@ -1,8 +1,10 @@
 ﻿namespace CarbonCore.Applications.MCUpdate
 {
+    using System;
     using System.Text;
 
     using CarbonCore.Applications.MCUpdate.Data;
+    using CarbonCore.Applications.MCUpdate.Logic;
     using CarbonCore.Applications.MCUpdate.Logic.Enums;
     using CarbonCore.ToolFramework.Console.Logic;
     using CarbonCore.Utils;
@@ -12,7 +14,9 @@
     using CarbonCore.Utils.Edge.CommandLine.Contracts;
     
     using MCUpdate.Contracts;
-    
+
+    using INEModLookup = CarbonCore.Applications.MCUpdate.Contracts.INEModLookup;
+
     public class Main : ConsoleApplicationBase, IMain
     {
         private readonly IMCModManager modManager;
@@ -22,7 +26,7 @@
 
         private string version;
 
-        private bool isServerMode;
+        private UpdateMode mode = UpdateMode.ClientInstance;
         
         // -------------------------------------------------------------------
         // Constructor
@@ -40,7 +44,31 @@
 
         protected override void StartFinished()
         {
-            if (!this.InitializeModManager() || !this.InitializeModLookup())
+            switch (this.mode)
+            {
+                    case UpdateMode.ClientInstance:
+                    case UpdateMode.ServerInstance:
+                    {
+                        if (!this.InitializeInstanceModManager())
+                        {
+                            return;
+                        }
+
+                        break;
+                    }
+
+                    case UpdateMode.Directory:
+                    {
+                        if (!this.InitializeDirectoryModManager())
+                        {
+                            return;
+                        }
+
+                        break;
+                    }
+            }
+
+            if (!this.InitializeModLookup())
             {
                 return;
             }
@@ -51,7 +79,24 @@
         // -------------------------------------------------------------------
         // Private
         // -------------------------------------------------------------------
-        private bool InitializeModManager()
+        private bool InitializeDirectoryModManager()
+        {
+            if (this.instanceDirectory == null)
+            {
+                this.instanceDirectory = RuntimeInfo.WorkingDirectory;
+            }
+
+            this.modManager.Initialize(this.instanceDirectory);
+            if (this.modManager.Mods.Count <= 0)
+            {
+                Diagnostic.Warning("No valid mods detected, aborting update check");
+                return false;
+            }
+
+            return true;
+        }
+
+        private bool InitializeInstanceModManager()
         {
             if (this.instanceDirectory == null)
             {
@@ -111,8 +156,10 @@
                     continue;
                 }
 
+                string invariantVersion = info.Version.ToLowerInvariant();
                 if (mod.Version.Equals(info.Version)
-                    || mod.Version.ToLowerInvariant().Contains(info.Version.ToLowerInvariant()))
+                    || mod.Version.ToLowerInvariant().Contains(invariantVersion)
+                    || mod.File.FileNameWithoutExtension.ToLowerInvariant().Contains(invariantVersion))
                 {
                     // Same version
                     continue;
@@ -163,8 +210,9 @@
             definition.RequireArgument = true;
             definition.Description = "The Root directory of the instance (if not current)";
 
-            definition = this.Arguments.Define("server", x => this.isServerMode = true);
-            definition.Description = "Server mode, default is false";
+            definition = this.Arguments.Define("m", "mode", x => Enum.TryParse(x, out this.mode));
+            definition.RequireArgument = true;
+            definition.Description = "mode, default is ClientInstance";
 
             return true;
         }

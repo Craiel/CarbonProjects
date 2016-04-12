@@ -14,8 +14,7 @@
         public string Description { get; set; }
 
         public string Version { get; set; }
-
-        [JsonConverter(typeof(JsonStringConverter))]
+        
         public string MCVersion { get; set; }
 
         public string Url { get; set; }

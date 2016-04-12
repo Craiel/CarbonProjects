@@ -114,6 +114,7 @@
                             segment.Key = (int)key;
                             switch (key)
                             {
+                                case JavaTermKey.Comma:
                                 case JavaTermKey.Dot:
                                     {
                                         argumentString += token.Contents;

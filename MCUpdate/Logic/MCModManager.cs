@@ -71,7 +71,7 @@
                 }
 
                 this.Mods.Add(mod);
-                this.nameLookup.Add(mod.Id, mod);
+                this.nameLookup.Add(mod.Id.ToLowerInvariant(), mod);
             }
         }
 

@@ -6,6 +6,7 @@
     using CarbonCore.GrammarParser;
     using CarbonCore.GrammarParser.Grammars;
     using CarbonCore.GrammarParser.Tokenize;
+    using CarbonCore.Utils.Diagnostics;
 
     using SMC.SourceLib.Intermediate;
 
@@ -109,7 +110,8 @@
                                     {
                                         if (!inThrows)
                                         {
-                                            throw new InvalidDataException("Comma outside of throws");
+                                            Diagnostic.Warning("Comma outside of throws, probably Enum definition");
+                                            return true;
                                         }
 
                                         continue;
