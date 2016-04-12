@@ -55,6 +55,7 @@
     <Compile Include="Entry.cs" />
     <Compile Include="ColladaMinecraft.cs" />
     <Compile Include="IoC\IoC.cs" />
+    <Compile Include="Logic\Block.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -71,6 +72,10 @@
     <ProjectReference Include="..\..\CarbonCore\Source\Processing\CarbonCore.Processing.csproj">
       <Project>{4db8d196-1f50-493f-9ffb-40e1e503ee87}</Project>
       <Name>CarbonCore.Processing</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\CarbonCore\Source\ToolFramework\Console\CarbonCore.ToolFramework.Console.csproj">
+      <Project>{1FF6D0DA-B801-4956-A015-CE04FC7FB93F}</Project>
+      <Name>CarbonCore.ToolFramework.Console</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\CarbonCore\Source\Utils\CarbonCore.Utils.csproj">
       <Project>{e05836d9-0bb3-4bfa-89e6-f5ed40a9d93c}</Project>

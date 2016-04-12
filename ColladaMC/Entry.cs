@@ -14,7 +14,7 @@
         public static void Main(string[] args)
         {
             var container = CarbonContainerBuilder.BuildQuick<ColladaMCModule>();
-            container.Resolve<IColladaMinecraft>().Process();
+            container.Resolve<IColladaMinecraft>().Start();
 
             Profiler.TraceProfilerStatistics();
         }

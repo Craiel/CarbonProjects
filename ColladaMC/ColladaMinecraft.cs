@@ -6,67 +6,23 @@
 
     using CarbonCore.Processing.Resource.Model;
     using CarbonCore.Processing.Source.Collada;
+    using CarbonCore.ToolFramework.Console.Logic;
     using CarbonCore.Utils.Contracts.IoC;
     using CarbonCore.Utils.Diagnostics;
     using CarbonCore.Utils.Edge.CommandLine.Contracts;
     using CarbonCore.Utils.IO;
 
     using ColladaMC.Contracts;
+    using ColladaMC.Logic;
 
     using Cyotek.Data.Nbt;
 
     using SharpDX;
 
-    internal class Block
-    {
-        private readonly List<string> materials;
-
-        // -------------------------------------------------------------------
-        // Constructor
-        // -------------------------------------------------------------------
-        public Block()
-        {
-            this.materials = new List<string>();
-        }
-
-        // -------------------------------------------------------------------
-        // Public
-        // -------------------------------------------------------------------
-        public int X { get; set; }
-        public int Y { get; set; }
-        public int Z { get; set; }
-
-        public IList<string> Materials
-        {
-            get
-            {
-                return this.materials;
-            }
-        }
-
-        public override int GetHashCode()
-        {
-            return Tuple.Create(this.X, this.Y, this.Z).GetHashCode();
-        }
-
-        public override bool Equals(object obj)
-        {
-            var typed = obj as Block;
-            if (typed == null)
-            {
-                return false;
-            }
-
-            return typed.X == this.X && typed.Y == this.Y && typed.Z == this.Z;
-        }
-    }
-
-    public class ColladaMinecraft : IColladaMinecraft
+    public class ColladaMinecraft : ConsoleApplicationBase, IColladaMinecraft
     {
         private const int MaxHeight = 240;
-
-        private readonly IFactory factory;
-
+        
         private readonly ICommandLineArguments arguments;
         private readonly IDictionary<Block, Block> blocks;
 
@@ -84,11 +40,9 @@
         // Constructor
         // -------------------------------------------------------------------
         public ColladaMinecraft(IFactory factory)
+            : base(factory)
         {
-            this.factory = factory;
-
             this.arguments = factory.Resolve<ICommandLineArguments>();
-            this.RegisterCommandLineArguments();
 
             this.modelBoundingBox = new BoundingBox(new Vector3(0), new Vector3(0));
 
@@ -98,7 +52,12 @@
         // -------------------------------------------------------------------
         // Public
         // -------------------------------------------------------------------
-        public void Process()
+        public override string Name => "ColladaMC";
+
+        // -------------------------------------------------------------------
+        // Protected
+        // -------------------------------------------------------------------
+        protected override void StartFinished()
         {
             if (!this.arguments.ParseCommandLineArguments())
             {
@@ -109,17 +68,19 @@
             this.DoProcess();
         }
 
-        // -------------------------------------------------------------------
-        // Private
-        // -------------------------------------------------------------------
-        private void RegisterCommandLineArguments()
+        protected override bool RegisterCommandLineArguments()
         {
             ICommandLineSwitchDefinition definition = this.arguments.Define("s", "sourceFile", x => this.sourceFile = new CarbonFile(x));
             definition.Required = true;
             definition.RequireArgument = true;
             definition.Description = "The source file to process";
+
+            return true;
         }
 
+        // -------------------------------------------------------------------
+        // Private
+        // -------------------------------------------------------------------
         private void DoProcess()
         {
             if (this.sourceFile == null || !this.sourceFile.Exists)
@@ -129,16 +90,7 @@
             }
 
             CarbonFile targetFile = this.sourceFile.ChangeExtension(".schematic");
-
-            var reader = new BinaryTagReader();
-            TagCompound test1;
-            if (targetFile.Exists)
-            {
-                test1 = reader.Load(targetFile.GetPath());
-            }
-
-            var test2 = reader.Load(@"C:\Games\Minecraft\ColladaMC\Untitled World.schematic");
-
+            
             using (new ProfileRegion("Load Model Info"))
             {
                 this.modelInfo = new ColladaInfo(this.sourceFile);

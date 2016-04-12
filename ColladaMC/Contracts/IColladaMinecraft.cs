@@ -1,7 +1,8 @@
 ﻿namespace ColladaMC.Contracts
 {
-    public interface IColladaMinecraft
+    using CarbonCore.ToolFramework.Console.Contracts;
+
+    public interface IColladaMinecraft : IConsoleApplicationBase
     {
-        void Process();
     }
 }
