@@ -14,6 +14,7 @@
 
     using ColladaMC.Contracts;
     using ColladaMC.Logic;
+    using ColladaMC.Logic.Enums;
 
     using Cyotek.Data.Nbt;
 
@@ -36,6 +37,8 @@
         private Vector3 zeroOffset;
         private float scaleFactor = 10.0f;
 
+        private ProcessingMode mode;
+
         // -------------------------------------------------------------------
         // Constructor
         // -------------------------------------------------------------------
@@ -47,6 +50,8 @@
             this.modelBoundingBox = new BoundingBox(new Vector3(0), new Vector3(0));
 
             this.blocks = new Dictionary<Block, Block>();
+
+            this.mode = ProcessingMode.ColladaToSchematic;
         }
 
         // -------------------------------------------------------------------
@@ -75,6 +80,10 @@
             definition.RequireArgument = true;
             definition.Description = "The source file to process";
 
+            definition = this.arguments.Define("m", "mode", x => this.mode = (ProcessingMode)(Enum.Parse(typeof(ProcessingMode), x)));
+            definition.RequireArgument = true;
+            definition.Description = "The processing mode";
+
             return true;
         }
 
@@ -89,8 +98,42 @@
                 return;
             }
 
+            switch (this.mode)
+            {
+                    case ProcessingMode.ColladaToSchematic:
+                    {
+                        this.ConvertColladaToSchematic();
+                        break;
+                    }
+
+                    case ProcessingMode.SchematicToJson:
+                    {
+                        this.ConvertSchematicToJson();
+                        break;
+                    }
+
+                    case ProcessingMode.JsonToSchematic:
+                    {
+                        Diagnostic.Error("Json to Schematic is not implemented!");
+                        break;
+                    }
+            }
+        }
+
+        private void ConvertSchematicToJson()
+        {
+            using (var stream = this.sourceFile.OpenRead())
+            {
+                var reader = new BinaryTagReader(stream, NbtOptions.None);
+                var tag = reader.Read();
+                Diagnostic.Info("Read: {0}", tag.ToString());
+            }
+        }
+
+        private void ConvertColladaToSchematic()
+        {
             CarbonFile targetFile = this.sourceFile.ChangeExtension(".schematic");
-            
+
             using (new ProfileRegion("Load Model Info"))
             {
                 this.modelInfo = new ColladaInfo(this.sourceFile);
@@ -100,6 +143,12 @@
             using (new ProfileRegion("Process collada"))
             {
                 this.model = ColladaProcessor.Process(this.modelInfo, null, null);
+            }
+
+            if (this.model.Groups == null)
+            {
+                Diagnostic.Error("Model has no group information");
+                return;
             }
 
             using (new ProfileRegion("Updating bounding box"))
@@ -112,6 +161,11 @@
                 this.ConvertMesh();
             }
 
+            this.WriteSchematic(targetFile);
+        }
+        
+        private void WriteSchematic(CarbonFile targetFile)
+        {
             var sizeVector = this.outputBoundingBox.Maximum - this.outputBoundingBox.Minimum + new Vector3(1);
             int maxAddress = (int)(sizeVector.Y * sizeVector.Z * sizeVector.X);
             using (var file = File.Open(targetFile.GetPath(), FileMode.Create, FileAccess.Write, FileShare.Read))
@@ -124,7 +178,7 @@
                 compound.Value.Add(new TagList("Entities"));
                 compound.Value.Add(new TagList("TileEntities"));
                 compound.Value.Add(new TagString("Materials", "Alpha"));
-                
+
                 var blockArray = new byte[maxAddress];
                 var biomeArray = new byte[(int)(sizeVector.Z * sizeVector.X)];
                 var dataArray = new byte[maxAddress];
@@ -177,7 +231,7 @@
 
         private void UpdateBoundingBox()
         {
-            foreach (ModelResourceGroup @group in model.Groups)
+            foreach (ModelResourceGroup @group in this.model.Groups)
             {
                 foreach (ModelResource modelResource in @group.Models)
                 {
@@ -202,7 +256,7 @@
         private void ConvertMesh()
         {
             System.Diagnostics.Trace.TraceInformation("Converting mesh: ");
-            foreach (ModelResourceGroup @group in model.Groups)
+            foreach (ModelResourceGroup @group in this.model.Groups)
             {
                 System.Diagnostics.Trace.TraceInformation("  # Group {0}", @group.Name);
                 foreach (ModelResource modelResource in @group.Models)
