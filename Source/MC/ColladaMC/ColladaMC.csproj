@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{12DFF84C-13FE-4AB2-94F3-A541749F18EB}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ColladaMC</RootNamespace>
+    <AssemblyName>ColladaMC</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>$(ROOTDIR)bin\$(Configuration)\ColladaMC</OutputPath>
+    <IntermediateOutputPath>$(ROOTDIR)obj\$(Configuration)\ColladaMC</IntermediateOutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>$(CCSOURCEDIR)\CarbonCore.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <OutputPath>$(ROOTDIR)bin\$(Configuration)\ColladaMC</OutputPath>
+    <IntermediateOutputPath>$(ROOTDIR)obj\$(Configuration)\ColladaMC</IntermediateOutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>$(CCSOURCEDIR)\CarbonCore.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="SharpDX, Version=3.0.1.0, Culture=neutral, PublicKeyToken=b4dcf0f35e5521f1, processorArchitecture=MSIL">
+      <HintPath>$(SolutionDir)\packages\SharpDX.3.0.1\lib\net45\SharpDX.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SharpDX.Mathematics, Version=3.0.1.0, Culture=neutral, PublicKeyToken=b4dcf0f35e5521f1, processorArchitecture=MSIL">
+      <HintPath>$(SolutionDir)\packages\SharpDX.Mathematics.3.0.1\lib\net45\SharpDX.Mathematics.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Contracts\IColladaMinecraft.cs" />
+    <Compile Include="Entry.cs" />
+    <Compile Include="ColladaMinecraft.cs" />
+    <Compile Include="IoC\IoC.cs" />
+    <Compile Include="Logic\Block.cs" />
+    <Compile Include="Logic\Enums\ProcessingMode.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="$(CCSOURCEDIR)\GrammarParser\CarbonCore.GrammarParser.csproj">
+      <Project>{50c22f18-89f6-48f3-a29f-ca25fdaddb90}</Project>
+      <Name>CarbonCore.GrammarParser</Name>
+    </ProjectReference>
+    <ProjectReference Include="$(CCSOURCEDIR)\Processing\CarbonCore.Processing.csproj">
+      <Project>{4db8d196-1f50-493f-9ffb-40e1e503ee87}</Project>
+      <Name>CarbonCore.Processing</Name>
+    </ProjectReference>
+    <ProjectReference Include="$(CCSOURCEDIR)\ToolFramework\Console\CarbonCore.ToolFramework.Console.csproj">
+      <Project>{1FF6D0DA-B801-4956-A015-CE04FC7FB93F}</Project>
+      <Name>CarbonCore.ToolFramework.Console</Name>
+    </ProjectReference>
+    <ProjectReference Include="$(CCSOURCEDIR)\Utils\CarbonCore.Utils.csproj">
+      <Project>{e05836d9-0bb3-4bfa-89e6-f5ed40a9d93c}</Project>
+      <Name>CarbonCore.Utils</Name>
+    </ProjectReference>
+    <ProjectReference Include="$(CCSOURCEDIR)\Utils\Edge\CommandLine\CarbonCore.Utils.Edge.CommandLine.csproj">
+      <Project>{e99c6721-99a5-4dc3-bd9d-dc88f65d217a}</Project>
+      <Name>CarbonCore.Utils.Edge.CommandLine</Name>
+    </ProjectReference>
+    <ProjectReference Include="Cyotek.Data.Nbt\Cyotek.Data.Nbt.csproj">
+      <Project>{14287ad3-9576-46e6-9de3-b7731a496da3}</Project>
+      <Name>Cyotek.Data.Nbt</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
