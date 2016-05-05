@@ -1,7 +1,12 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
 	<s:String x:Key="/Default/CodeStyle/Naming/CSharpNaming/Abbreviations/=NE/@EntryIndexedValue">NE</s:String>
-	<s:String x:Key="/Default/Environment/InjectedLayers/FileInjectedLayer/=312BCA497F9F6B448A2E3191A1834D78/AbsolutePath/@EntryValue">D:\_dev\CarbonCore\Source\CarbonCore.sln.DotSettings</s:String>
-	<s:String x:Key="/Default/Environment/InjectedLayers/FileInjectedLayer/=312BCA497F9F6B448A2E3191A1834D78/RelativePath/@EntryValue">..\..\CarbonCore\Source\CarbonCore.sln.DotSettings</s:String>
-	<s:Boolean x:Key="/Default/Environment/InjectedLayers/FileInjectedLayer/=312BCA497F9F6B448A2E3191A1834D78/@KeyIndexDefined">True</s:Boolean>
-	<s:Boolean x:Key="/Default/Environment/InjectedLayers/InjectedLayerCustomization/=File312BCA497F9F6B448A2E3191A1834D78/@KeyIndexDefined">True</s:Boolean>
-	<s:Double x:Key="/Default/Environment/InjectedLayers/InjectedLayerCustomization/=File312BCA497F9F6B448A2E3191A1834D78/RelativePriority/@EntryValue">1</s:Double></wpf:ResourceDictionary>
+	<s:Boolean x:Key="/Default/Environment/InjectedLayers/FileInjectedLayer/=4FF23F7DC62B634E85EA08965D313427/@KeyIndexDefined">True</s:Boolean>
+	<s:String x:Key="/Default/Environment/InjectedLayers/FileInjectedLayer/=4FF23F7DC62B634E85EA08965D313427/AbsolutePath/@EntryValue">D:\Dev\CarbonCore\Source\CarbonCore.sln.DotSettings</s:String>
+	<s:String x:Key="/Default/Environment/InjectedLayers/FileInjectedLayer/=4FF23F7DC62B634E85EA08965D313427/RelativePath/@EntryValue">..\..\..\CarbonCore\Source\CarbonCore.sln.DotSettings</s:String>
+	<s:Boolean x:Key="/Default/Environment/InjectedLayers/InjectedLayerCustomization/=File4FF23F7DC62B634E85EA08965D313427/@KeyIndexDefined">True</s:Boolean>
+	<s:Double x:Key="/Default/Environment/InjectedLayers/InjectedLayerCustomization/=File4FF23F7DC62B634E85EA08965D313427/RelativePriority/@EntryValue">1</s:Double>
+	
+	
+	
+	
+	</wpf:ResourceDictionary>
