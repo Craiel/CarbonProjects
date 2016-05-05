@@ -1,12 +1,12 @@
-﻿namespace CarbonCore.Applications.CrystalBuild.Logic.Processors
+﻿namespace CarbonCore.Applications.CrystalBuild.JavaScript.Logic.Processors
 {
     using System.Collections.Generic;
     using System.Text;
     using System.Text.RegularExpressions;
 
+    using CarbonCore.Applications.CrystalBuild.JavaScript.Contracts.Processors;
+    using CarbonCore.CrystalBuild.Logic;
     using CarbonCore.Utils.IO;
-
-    using CrystalBuild.Contracts.Processors;
 
     public class CssProcessor : ContentProcessor, ICssProcessor
     {
@@ -52,7 +52,7 @@
                 string key = style.Name.ToLowerInvariant();
                 if (this.styleDictionary.ContainsKey(key))
                 {
-                    this.Context.AddError("Duplicate style: {0}", style.Name);
+                    this.GetContext<JavaScriptBuildingContext>().AddError("Duplicate style: {0}", style.Name);
                     continue;
                 }
 
@@ -124,7 +124,7 @@
                     string[] segmentParts = segment.Split(':');
                     if (segmentParts.Length != 2)
                     {
-                        this.Context.AddError("Invalid segment count: {0}", segment);
+                        this.GetContext<JavaScriptBuildingContext>().AddError("Invalid segment count: {0}", segment);
                         continue;
                     }
                     
@@ -153,7 +153,7 @@
                     CssStyle includedStyle = this.LocateStyle(value);
                     if (includedStyle == null)
                     {
-                        this.Context.AddError("Included style not found, {0} in {1}", value, style.Name);
+                        this.GetContext<JavaScriptBuildingContext>().AddError("Included style not found, {0} in {1}", value, style.Name);
                         continue;
                     }
 
@@ -178,7 +178,7 @@
                     {
                         if (value.ToLowerInvariant().Contains(extension))
                         {
-                            this.Context.AddWarning("Style contains image reference: {0}", style.Name);
+                            this.GetContext<JavaScriptBuildingContext>().AddWarning("Style contains image reference: {0}", style.Name);
                         }   
                     }
                 }

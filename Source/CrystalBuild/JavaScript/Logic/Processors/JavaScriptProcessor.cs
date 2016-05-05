@@ -1,15 +1,15 @@
-﻿namespace CarbonCore.Applications.CrystalBuild.Logic.Processors
+﻿namespace CarbonCore.Applications.CrystalBuild.JavaScript.Logic.Processors
 {
     using System;
     using System.Collections.Generic;
     using System.Text;
     using System.Text.RegularExpressions;
-    
+
+    using CarbonCore.Applications.CrystalBuild.JavaScript.Contracts.Processors;
+    using CarbonCore.CrystalBuild.Logic;
     using CarbonCore.Utils.Edge;
     using CarbonCore.Utils.I18N;
     using CarbonCore.Utils.IO;
-
-    using CrystalBuild.Contracts.Processors;
 
     public enum ProcessingInstructions
     {
@@ -53,7 +53,7 @@
             this.ProcessSource(localContext, ref content);
             
             // In debug mode append the file name of the source
-            if (this.Context.IsDebug)
+            if (this.GetContext<JavaScriptBuildingContext>().IsDebug)
             {
                 this.AppendFormatLine("// {0}", source.FileNameWithoutExtension);
             }
@@ -77,7 +77,7 @@
                     continue;
                 }
 
-                if (context.DirectiveStack.Contains(ProcessingInstructions.Debug) && !this.Context.IsDebug)
+                if (context.DirectiveStack.Contains(ProcessingInstructions.Debug) && !this.GetContext<JavaScriptBuildingContext>().IsDebug)
                 {
                     continue;
                 }
@@ -115,7 +115,7 @@
                     }
                     else
                     {
-                        this.Context.AddWarning("Unknown processing instruction: {0} on line {1}", instructionString, context.CurrentLineIndex);
+                        this.GetContext<JavaScriptBuildingContext>().AddWarning("Unknown processing instruction: {0} on line {1}", instructionString, context.CurrentLineIndex);
                     }
                 }
 
@@ -138,7 +138,7 @@
                 context.OutputLine = context.OutputLine.Replace(name, $"{name},'{context.SourceName}'");
                 if (context.UsingVars.ContainsKey(varName))
                 {
-                    this.Context.AddError("Duplicate using: {0} in {1}", varName, context.SourceName);
+                    this.GetContext<JavaScriptBuildingContext>().AddError("Duplicate using: {0} in {1}", varName, context.SourceName);
                 }
                 else
                 {
@@ -172,7 +172,7 @@
                     // If the contents do not match we have a hash collision
                     if (!string.Equals(this.hashCollisionTest[hash], content))
                     {
-                        this.Context.AddWarning(
+                        this.GetContext<JavaScriptBuildingContext>().AddWarning(
                             "Hash Collision for {0}, \"{1}\" <-> \"{2}\"",
                             hash,
                             this.hashCollisionTest[hash],
@@ -196,15 +196,15 @@
             {
                 string expression = match.Groups[1].ToString();
                 string key = match.Groups[2].Value;
-                if (!this.Context.Cache.Images.ContainsKey(key))
+                if (!this.GetContext<JavaScriptBuildingContext>().Cache.Images.ContainsKey(key))
                 {
-                    this.Context.AddError("Missing Image for Key: {0} in file {1} on line {2}", key, context.CurrentLineIndex, context.SourceName);
+                    this.GetContext<JavaScriptBuildingContext>().AddError("Missing Image for Key: {0} in file {1} on line {2}", key, context.CurrentLineIndex, context.SourceName);
                     context.OutputLine = context.OutputLine.Replace(expression, "#IMGNOTFOUND:" + key);
                     continue;
                 }
 
-                this.Context.Cache.RegisterImageUse(key);
-                context.OutputLine = context.OutputLine.Replace(expression, this.Context.Cache.Images[key]);
+                this.GetContext<JavaScriptBuildingContext>().Cache.RegisterImageUse(key);
+                context.OutputLine = context.OutputLine.Replace(expression, this.GetContext<JavaScriptBuildingContext>().Cache.Images[key]);
             }
         }
 
@@ -227,7 +227,7 @@
             {
                 if (context.UsingVars[@var] <= 0)
                 {
-                    this.Context.AddWarning("Include potentially not used: {0} in {1}", @var, context.SourceName);
+                    this.GetContext<JavaScriptBuildingContext>().AddWarning("Include potentially not used: {0} in {1}", @var, context.SourceName);
                 }
             }
         }

@@ -1,20 +1,19 @@
-﻿namespace CarbonCore.Applications.CrystalBuild
+﻿namespace CarbonCore.Applications.CrystalBuild.JavaScript
 {
     using System;
     using System.Collections.Generic;
     using System.Diagnostics;
 
-    using CarbonCore.Applications.CrystalBuild.Logic;
+    using CarbonCore.Applications.CrystalBuild.JavaScript.Contracts;
+    using CarbonCore.Applications.CrystalBuild.JavaScript.Logic;
     using CarbonCore.ToolFramework.Console.Logic;
     using CarbonCore.Utils;
     using CarbonCore.Utils.Contracts.IoC;
     using CarbonCore.Utils.Diagnostics;
+    using CarbonCore.Utils.Edge.CommandLine.Contracts;
     using CarbonCore.Utils.I18N;
     using CarbonCore.Utils.IO;
-    using CarbonCore.Utils.Edge.CommandLine.Contracts;
 
-    using CrystalBuild.Contracts;
-    
     public class Main : ConsoleApplicationBase, IMain
     {
         // --compilation_level ADVANCED_OPTIMIZATIONS
@@ -94,7 +93,7 @@
         // -------------------------------------------------------------------
         private void DoBuildProject()
         {
-            var cache = new ProcessingCache();
+            var cache = new JavaScriptBuildingCache();
 
             if (this.config.Current.Images != null)
             {
@@ -102,7 +101,7 @@
                 IList<CarbonFileResult> files = CarbonDirectory.GetFiles(filters);
                 if (files.Count > 0)
                 {
-                    var context = new ProcessingContext(cache, this.config.Current.TargetPlatform) { Root = this.config.Current.ImageRoot };
+                    var context = new JavaScriptBuildingContext(cache, this.config.Current.TargetPlatform) { Root = this.config.Current.ImageRoot };
 
                     this.logic.BuildImages(files, context);
                 }
@@ -118,7 +117,7 @@
                 IList<CarbonFileResult> files = CarbonDirectory.GetFiles(filters);
                 if (files != null && files.Count > 0)
                 {
-                    this.logic.BuildData(files, this.config.Current.ProjectRoot.ToFile(this.config.Current.DataTarget), new ProcessingContext(cache, this.config.Current.TargetPlatform));
+                    this.logic.BuildData(files, this.config.Current.ProjectRoot.ToFile(this.config.Current.DataTarget), new JavaScriptBuildingContext(cache, this.config.Current.TargetPlatform));
                 }
                 else
                 {
@@ -132,7 +131,7 @@
                 IList<CarbonFileResult> files = CarbonDirectory.GetFiles(filters);
                 if (files != null && files.Count > 0)
                 {
-                    this.logic.BuildTemplates(files, this.config.Current.ProjectRoot.ToFile(this.config.Current.TemplateTarget), new ProcessingContext(cache, this.config.Current.TargetPlatform));
+                    this.logic.BuildTemplates(files, this.config.Current.ProjectRoot.ToFile(this.config.Current.TemplateTarget), new JavaScriptBuildingContext(cache, this.config.Current.TargetPlatform));
                 }
                 else
                 {
@@ -186,7 +185,7 @@
                     this.logic.Build(
                         files,
                         targetFile,
-                        new ProcessingContext(cache, this.config.Current.TargetPlatform)
+                        new JavaScriptBuildingContext(cache, this.config.Current.TargetPlatform)
                         {
                             Name = this.config.Current.Name,
                             IsDebug = this.useDebug,
@@ -216,7 +215,7 @@
                 IList<CarbonFileResult> files = CarbonDirectory.GetFiles(filters);
                 if (files != null && files.Count > 0)
                 {
-                    this.logic.BuildStyleSheets(files, this.config.Current.ProjectRoot.ToFile(this.config.Current.StyleSheetTarget), new ProcessingContext(cache, this.config.Current.TargetPlatform));
+                    this.logic.BuildStyleSheets(files, this.config.Current.ProjectRoot.ToFile(this.config.Current.StyleSheetTarget), new JavaScriptBuildingContext(cache, this.config.Current.TargetPlatform));
                 }
                 else
                 {

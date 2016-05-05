@@ -1,4 +1,4 @@
-﻿namespace CarbonCore.Applications.CrystalBuild.Contracts
+﻿namespace CarbonCore.Applications.CrystalBuild.JavaScript.Contracts
 {
     using CarbonCore.ToolFramework.Console.Contracts;
 

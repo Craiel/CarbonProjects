@@ -1,6 +1,6 @@
-﻿namespace CarbonCore.Applications.CrystalBuild
+﻿namespace CarbonCore.Applications.CrystalBuild.JavaScript
 {
-    using CarbonCore.Applications.CrystalBuild.Logic;
+    using CarbonCore.Applications.CrystalBuild.JavaScript.Logic;
     using CarbonCore.Utils.IO;
 
     using Newtonsoft.Json;

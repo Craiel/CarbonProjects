@@ -1,4 +1,4 @@
-﻿namespace CarbonCore.Applications.CrystalBuild.Logic
+﻿namespace CarbonCore.Applications.CrystalBuild.JavaScript.Logic
 {
     public enum BuildTargetPlatform
     {

@@ -81,6 +81,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CrystalBuild", "CrystalBuil
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarbonCore.Applications.CrystalBuild.CSharp", "CrystalBuild\CSharp\CarbonCore.Applications.CrystalBuild.CSharp.csproj", "{60C57684-A20D-4857-AC5F-254C0FCEEC6B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarbonCore.CrystalBuild", "..\..\CarbonCore\Source\CrystalBuild\CarbonCore.CrystalBuild.csproj", "{D2C2544A-15A6-40D6-BBA2-2EE1C0B56486}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -321,6 +323,14 @@ Global
 		{60C57684-A20D-4857-AC5F-254C0FCEEC6B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{60C57684-A20D-4857-AC5F-254C0FCEEC6B}.Release|x64.ActiveCfg = Release|Any CPU
 		{60C57684-A20D-4857-AC5F-254C0FCEEC6B}.Release|x64.Build.0 = Release|Any CPU
+		{D2C2544A-15A6-40D6-BBA2-2EE1C0B56486}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2C2544A-15A6-40D6-BBA2-2EE1C0B56486}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2C2544A-15A6-40D6-BBA2-2EE1C0B56486}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{D2C2544A-15A6-40D6-BBA2-2EE1C0B56486}.Debug|x64.Build.0 = Debug|Any CPU
+		{D2C2544A-15A6-40D6-BBA2-2EE1C0B56486}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2C2544A-15A6-40D6-BBA2-2EE1C0B56486}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2C2544A-15A6-40D6-BBA2-2EE1C0B56486}.Release|x64.ActiveCfg = Release|Any CPU
+		{D2C2544A-15A6-40D6-BBA2-2EE1C0B56486}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -363,5 +373,6 @@ Global
 		{00C02B58-FA9B-4A3B-8877-AF9FCF195952} = {96537524-6C6A-4BD7-9EC3-BDBA1AB215A6}
 		{27EB548E-F5C4-4883-AD5C-99A908C5C8DE} = {554A9747-993D-48D9-98DB-69840178C64E}
 		{60C57684-A20D-4857-AC5F-254C0FCEEC6B} = {27EB548E-F5C4-4883-AD5C-99A908C5C8DE}
+		{D2C2544A-15A6-40D6-BBA2-2EE1C0B56486} = {27EB548E-F5C4-4883-AD5C-99A908C5C8DE}
 	EndGlobalSection
 EndGlobal

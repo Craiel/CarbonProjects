@@ -1,17 +1,12 @@
-﻿namespace CarbonCore.Applications.CrystalBuild.Contracts
+﻿namespace CarbonCore.Applications.CrystalBuild.CSharp.Contracts
 {
     using System.Collections.Generic;
-
-    using CarbonCore.Applications.CrystalBuild.Logic;
+    
+    using CarbonCore.CrystalBuild.Contracts;
     using CarbonCore.Utils.IO;
 
     public interface IBuildLogic
     {
-        void Build(IList<CarbonFileResult> sources, CarbonFile target, ProcessingContext context);
-        void BuildTemplates(IList<CarbonFileResult> sources, CarbonFile target, ProcessingContext context);
-        void BuildData(IList<CarbonFileResult> sources, CarbonFile target, ProcessingContext context);
-        void BuildStyleSheets(IList<CarbonFileResult> sources, CarbonFile target, ProcessingContext context);
-        void BuildImages(IList<CarbonFileResult> sources, ProcessingContext context);
-        void CopyContents(IList<CarbonFileResult> sources, CarbonDirectory target);
+        void BuildProjectFile(IList<CarbonFileResult> sources, CarbonFile target, IProcessingContext context);
     }
 }

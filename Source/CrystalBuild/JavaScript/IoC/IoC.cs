@@ -1,15 +1,14 @@
-﻿namespace CarbonCore.Applications.CrystalBuild.IoC
+﻿namespace CarbonCore.Applications.CrystalBuild.JavaScript.IoC
 {
-    using CarbonCore.Applications.CrystalBuild.Logic.Processors.Excel;
+    using CarbonCore.Applications.CrystalBuild.JavaScript.Contracts;
+    using CarbonCore.Applications.CrystalBuild.JavaScript.Contracts.Processors;
+    using CarbonCore.Applications.CrystalBuild.JavaScript.Logic;
+    using CarbonCore.Applications.CrystalBuild.JavaScript.Logic.Processors;
+    using CarbonCore.Applications.CrystalBuild.JavaScript.Logic.Processors.Excel;
     using CarbonCore.ToolFramework.Console.IoC;
     using CarbonCore.Utils.Edge.CommandLine.IoC;
     using CarbonCore.Utils.Edge.IoC;
     using CarbonCore.Utils.IoC;
-
-    using CrystalBuild.Contracts;
-    using CrystalBuild.Contracts.Processors;
-    using CrystalBuild.Logic;
-    using CrystalBuild.Logic.Processors;
 
     [DependsOnModule(typeof(UtilsEdgeModule))]
     [DependsOnModule(typeof(UtilsCommandLineModule))]

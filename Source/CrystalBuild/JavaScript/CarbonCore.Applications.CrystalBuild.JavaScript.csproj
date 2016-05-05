@@ -16,7 +16,7 @@
     </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>CarbonCore.Applications.CrystalBuild.Entry</StartupObject>
+    <StartupObject>CarbonCore.Applications.CrystalBuild.JavaScript.Entry</StartupObject>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
     <DebugSymbols>true</DebugSymbols>
@@ -48,7 +48,6 @@
     <Compile Include="Constants.cs" />
     <Compile Include="Contracts\IBuildLogic.cs" />
     <Compile Include="Contracts\IConfig.cs" />
-    <Compile Include="Contracts\Processors\IContentProcessor.cs" />
     <Compile Include="Contracts\Processors\ICssProcessor.cs" />
     <Compile Include="Contracts\Processors\IExcelProcessor.cs" />
     <Compile Include="Contracts\Processors\IJavaScriptProcessor.cs" />
@@ -58,9 +57,8 @@
     <Compile Include="Entry.cs" />
     <Compile Include="IoC\IoC.cs" />
     <Compile Include="Logic\BuildLogic.cs" />
-    <Compile Include="Logic\ProcessingCache.cs" />
-    <Compile Include="Logic\ProcessingContext.cs" />
-    <Compile Include="Logic\Processors\ContentProcessor.cs" />
+    <Compile Include="Logic\JavaScriptBuildingCache.cs" />
+    <Compile Include="Logic\JavaScriptBuildingContext.cs" />
     <Compile Include="Logic\Processors\CssProcessor.cs" />
     <Compile Include="Logic\Processors\Excel\ExcelFormatter.cs" />
     <Compile Include="Logic\Processors\Excel\ExcelFormatterUnity.cs" />
@@ -106,6 +104,10 @@
     <ProjectReference Include="$(CCSOURCEDIR)\Utils\Edge\CommandLine\CarbonCore.Utils.Edge.CommandLine.csproj">
       <Project>{e99c6721-99a5-4dc3-bd9d-dc88f65d217a}</Project>
       <Name>CarbonCore.Utils.Edge.CommandLine</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\CarbonCore\Source\CrystalBuild\CarbonCore.CrystalBuild.csproj">
+      <Project>{D2C2544A-15A6-40D6-BBA2-2EE1C0B56486}</Project>
+      <Name>CarbonCore.CrystalBuild</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

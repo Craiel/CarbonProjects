@@ -1,9 +1,11 @@
-﻿namespace CarbonCore.Applications.CrystalBuild.Logic
+﻿namespace CarbonCore.Applications.CrystalBuild.JavaScript.Logic
 {
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
 
-    public class ProcessingCache
+    using CarbonCore.CrystalBuild.Logic;
+
+    public class JavaScriptBuildingCache : BuildingCache
     {
         private readonly IDictionary<string, string> images;
         private readonly IDictionary<string, long> imageUseCount;
@@ -11,7 +13,7 @@
         // -------------------------------------------------------------------
         // Constructor
         // -------------------------------------------------------------------
-        public ProcessingCache()
+        public JavaScriptBuildingCache()
         {
             this.images = new Dictionary<string, string>();
             this.imageUseCount = new Dictionary<string, long>();

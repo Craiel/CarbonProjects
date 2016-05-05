@@ -1,9 +1,10 @@
-﻿namespace CarbonCore.Applications.CrystalBuild.Logic.Processors
+﻿namespace CarbonCore.Applications.CrystalBuild.JavaScript.Logic.Processors
 {
     using System;
     using System.Text;
 
-    using CarbonCore.Applications.CrystalBuild.Contracts.Processors;
+    using CarbonCore.Applications.CrystalBuild.JavaScript.Contracts.Processors;
+    using CarbonCore.CrystalBuild.Logic;
     using CarbonCore.Utils.IO;
 
     public class ImageProcessor : ContentProcessor, IImageProcessor
@@ -15,12 +16,12 @@
         // -------------------------------------------------------------------
         protected override void DoProcess(CarbonFile source)
         {
-            string relativeRootPath = source.GetDirectory().GetPath().Replace(this.Context.Root.GetPath(), string.Empty);
+            string relativeRootPath = source.GetDirectory().GetPath().Replace(this.GetContext<JavaScriptBuildingContext>().Root.GetPath(), string.Empty);
             string fileName = source.FileName;
             string fileNameId = this.BuildPathId(relativeRootPath + source.FileNameWithoutExtension);
             string rootPathId = this.BuildPathId(relativeRootPath, true);
 
-            this.Context.Cache.RegisterImage(fileNameId, $@"staticData.imageRoot{rootPathId} + ""{fileName}""");
+            this.GetContext<JavaScriptBuildingContext>().Cache.RegisterImage(fileNameId, $@"staticData.imageRoot{rootPathId} + ""{fileName}""");
         }
 
         // -------------------------------------------------------------------

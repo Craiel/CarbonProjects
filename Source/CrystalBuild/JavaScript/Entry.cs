@@ -1,10 +1,9 @@
-﻿namespace CarbonCore.Applications.CrystalBuild
+﻿namespace CarbonCore.Applications.CrystalBuild.JavaScript
 {
+    using CarbonCore.Applications.CrystalBuild.JavaScript.Contracts;
+    using CarbonCore.Applications.CrystalBuild.JavaScript.IoC;
     using CarbonCore.Utils.Diagnostics;
     using CarbonCore.Utils.Edge.IoC;
-
-    using CrystalBuild.Contracts;
-    using CrystalBuild.IoC;
 
     public static class Entry
     {

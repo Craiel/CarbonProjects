@@ -1,9 +1,9 @@
-﻿namespace CarbonCore.Applications.CrystalBuild.Logic.Processors.Excel
+﻿namespace CarbonCore.Applications.CrystalBuild.JavaScript.Logic.Processors.Excel
 {
     using System.Collections.Generic;
     using System.Text;
 
-    using CarbonCore.Applications.CrystalBuild.Contracts.Processors;
+    using CarbonCore.Applications.CrystalBuild.JavaScript.Contracts.Processors;
     using CarbonCore.Processing.Processors.Excel;
     using CarbonCore.Utils.Diagnostics;
 

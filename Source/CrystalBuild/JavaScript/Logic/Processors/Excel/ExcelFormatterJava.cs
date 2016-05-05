@@ -1,4 +1,4 @@
-﻿namespace CarbonCore.Applications.CrystalBuild.Logic.Processors.Excel
+﻿namespace CarbonCore.Applications.CrystalBuild.JavaScript.Logic.Processors.Excel
 {
     using System.Linq;
     using System.Text;

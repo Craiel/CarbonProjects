@@ -1,10 +1,11 @@
-﻿namespace CarbonCore.Applications.CrystalBuild
+﻿namespace CarbonCore.Applications.CrystalBuild.JavaScript
 {
+    using CarbonCore.Applications.CrystalBuild.JavaScript.Contracts;
     using CarbonCore.Utils;
     using CarbonCore.Utils.IO;
     using CarbonCore.Utils.Json;
 
-    using CrystalBuild.Contracts;
+    using Constants = CarbonCore.Applications.CrystalBuild.JavaScript.Constants;
 
     public class Config : JsonConfig<BuildConfig>, IConfig
     {
@@ -32,19 +33,19 @@
         {
             return new BuildConfig
                        {
-                           Name = Constants.DefaultProjectName,
-                           Templates = new[] { new CarbonDirectoryFilter(Constants.DataTemplateDirectory, Constants.FilterTemplates) },
-                           Sources = new[] { new CarbonDirectoryFilter(Constants.SourceDirectory, Constants.FilterSource) },
-                           Data = new[] { new CarbonDirectoryFilter(Constants.DataDirectory, Constants.FilterData) },
-                           StyleSheets = new[] {new CarbonDirectoryFilter(Constants.DataCssDirectory, Constants.FilterStyleSheet) },
-                           Contents = new[] { new CarbonDirectoryFilter(Constants.ContentDirectory, Constants.FilterContent) },
-                           Images = new[] { new CarbonDirectoryFilter(Constants.DataImagesDirectory, Constants.FilterImages) },
-                           SourceTarget = Constants.OutputDirectory.ToFile(Constants.DefaultProjectTarget),
-                           TemplateTarget = Constants.SourceDataGeneratedDirectory.ToFile(Constants.DefaultTemplateTarget),
-                           DataTarget = Constants.SourceDataGeneratedDirectory.ToFile(Constants.DefaultDataTarget),
-                           StyleSheetTarget = Constants.OutputDirectory.ToFile(Constants.DefaultStyleSheetTarget),
-                           ImageRoot = Constants.ContentDirectory.ToDirectory(Constants.DefaultImageRoot),
-                           ContentTarget = Constants.OutputDirectory
+                           Name = JavaScript.Constants.DefaultProjectName,
+                           Templates = new[] { new CarbonDirectoryFilter(JavaScript.Constants.DataTemplateDirectory, JavaScript.Constants.FilterTemplates) },
+                           Sources = new[] { new CarbonDirectoryFilter(JavaScript.Constants.SourceDirectory, JavaScript.Constants.FilterSource) },
+                           Data = new[] { new CarbonDirectoryFilter(JavaScript.Constants.DataDirectory, JavaScript.Constants.FilterData) },
+                           StyleSheets = new[] {new CarbonDirectoryFilter(JavaScript.Constants.DataCssDirectory, JavaScript.Constants.FilterStyleSheet) },
+                           Contents = new[] { new CarbonDirectoryFilter(JavaScript.Constants.ContentDirectory, JavaScript.Constants.FilterContent) },
+                           Images = new[] { new CarbonDirectoryFilter(JavaScript.Constants.DataImagesDirectory, JavaScript.Constants.FilterImages) },
+                           SourceTarget = JavaScript.Constants.OutputDirectory.ToFile(JavaScript.Constants.DefaultProjectTarget),
+                           TemplateTarget = JavaScript.Constants.SourceDataGeneratedDirectory.ToFile(JavaScript.Constants.DefaultTemplateTarget),
+                           DataTarget = JavaScript.Constants.SourceDataGeneratedDirectory.ToFile(JavaScript.Constants.DefaultDataTarget),
+                           StyleSheetTarget = JavaScript.Constants.OutputDirectory.ToFile(JavaScript.Constants.DefaultStyleSheetTarget),
+                           ImageRoot = JavaScript.Constants.ContentDirectory.ToDirectory(JavaScript.Constants.DefaultImageRoot),
+                           ContentTarget = JavaScript.Constants.OutputDirectory
                        };
         }
     }

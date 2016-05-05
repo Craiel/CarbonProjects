@@ -1,12 +1,12 @@
-﻿namespace CarbonCore.Applications.CrystalBuild
+﻿namespace CarbonCore.Applications.CrystalBuild.CSharp
 {
+    using CarbonCore.Applications.CrystalBuild.CSharp.Contracts;
+    using CarbonCore.Applications.CrystalBuild.CSharp.Data;
     using CarbonCore.Utils;
     using CarbonCore.Utils.IO;
     using CarbonCore.Utils.Json;
 
-    using CrystalBuild.Contracts;
-
-    public class Config : JsonConfig<JavaBuildConfig>, IConfig
+    public class Config : JsonConfig<BuildConfig>, IConfig
     {
         // -------------------------------------------------------------------
         // Public
@@ -28,24 +28,9 @@
         // -------------------------------------------------------------------
         // Protected
         // -------------------------------------------------------------------
-        protected override JavaBuildConfig GetDefault()
+        protected override BuildConfig GetDefault()
         {
-            return new JavaBuildConfig
-                       {
-                           Name = Constants.DefaultProjectName,
-                           Templates = new[] { new CarbonDirectoryFilter(Constants.DataTemplateDirectory, Constants.FilterTemplates) },
-                           Sources = new[] { new CarbonDirectoryFilter(Constants.SourceDirectory, Constants.FilterSource) },
-                           Data = new[] { new CarbonDirectoryFilter(Constants.DataDirectory, Constants.FilterData) },
-                           StyleSheets = new[] {new CarbonDirectoryFilter(Constants.DataCssDirectory, Constants.FilterStyleSheet) },
-                           Contents = new[] { new CarbonDirectoryFilter(Constants.ContentDirectory, Constants.FilterContent) },
-                           Images = new[] { new CarbonDirectoryFilter(Constants.DataImagesDirectory, Constants.FilterImages) },
-                           SourceTarget = Constants.OutputDirectory.ToFile(Constants.DefaultProjectTarget),
-                           TemplateTarget = Constants.SourceDataGeneratedDirectory.ToFile(Constants.DefaultTemplateTarget),
-                           DataTarget = Constants.SourceDataGeneratedDirectory.ToFile(Constants.DefaultDataTarget),
-                           StyleSheetTarget = Constants.OutputDirectory.ToFile(Constants.DefaultStyleSheetTarget),
-                           ImageRoot = Constants.ContentDirectory.ToDirectory(Constants.DefaultImageRoot),
-                           ContentTarget = Constants.OutputDirectory
-                       };
+            return new BuildConfig();
         }
     }
 }

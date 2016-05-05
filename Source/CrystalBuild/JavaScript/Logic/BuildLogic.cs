@@ -1,16 +1,17 @@
-﻿namespace CarbonCore.Applications.CrystalBuild.Logic
+﻿namespace CarbonCore.Applications.CrystalBuild.JavaScript.Logic
 {
     using System.Collections.Generic;
     using System.IO;
     using System.Text;
 
+    using CarbonCore.Applications.CrystalBuild.JavaScript.Contracts;
+    using CarbonCore.Applications.CrystalBuild.JavaScript.Contracts.Processors;
+    using CarbonCore.CrystalBuild.Contracts;
+    using CarbonCore.CrystalBuild.Logic;
     using CarbonCore.Utils.Contracts.IoC;
     using CarbonCore.Utils.Diagnostics;
     using CarbonCore.Utils.IO;
 
-    using CrystalBuild.Contracts;
-    using CrystalBuild.Contracts.Processors;
-    
     public class BuildLogic : IBuildLogic
     {
         private readonly IFactory factory;
@@ -26,7 +27,7 @@
         // -------------------------------------------------------------------
         // Public
         // -------------------------------------------------------------------
-        public void Build(IList<CarbonFileResult> sources, CarbonFile target, ProcessingContext context)
+        public void Build(IList<CarbonFileResult> sources, CarbonFile target, JavaScriptBuildingContext context)
         {
             if (context.ExportSourceAsModule)
             {
@@ -69,25 +70,25 @@
                 }
             }
 
-            this.TraceProcessorResult(processor, "Building Sources");
+            BuildingUtils.TraceProcessorResult(processor, "Building Sources");
         }
 
-        public void BuildTemplates(IList<CarbonFileResult> sources, CarbonFile target, ProcessingContext context)
+        public void BuildTemplates(IList<CarbonFileResult> sources, CarbonFile target, JavaScriptBuildingContext context)
         {
             this.DoBuildMultipleToOne<ITemplateProcessor>("Templates", sources, target, context);
         }
 
-        public void BuildData(IList<CarbonFileResult> sources, CarbonFile target, ProcessingContext context)
+        public void BuildData(IList<CarbonFileResult> sources, CarbonFile target, JavaScriptBuildingContext context)
         {
             this.DoBuildMultipleToOne<IExcelProcessor>("Data", sources, target, context, useTempFileForProcessing: true);
         }
 
-        public void BuildStyleSheets(IList<CarbonFileResult> sources, CarbonFile target, ProcessingContext context)
+        public void BuildStyleSheets(IList<CarbonFileResult> sources, CarbonFile target, JavaScriptBuildingContext context)
         {
             this.DoBuildMultipleToOne<ICssProcessor>("Style-sheets", sources, target, context);
         }
 
-        public void BuildImages(IList<CarbonFileResult> sources, ProcessingContext context)
+        public void BuildImages(IList<CarbonFileResult> sources, JavaScriptBuildingContext context)
         {
             this.DoBuildMultiple<IImageProcessor>("Images", sources, context);
         }
@@ -105,7 +106,7 @@
         // -------------------------------------------------------------------
         // Private
         // -------------------------------------------------------------------
-        private void DoBuildMultipleToOne<T>(string buildName, IList<CarbonFileResult> sources, CarbonFile target, ProcessingContext context, bool useTempFileForProcessing = false)
+        private void DoBuildMultipleToOne<T>(string buildName, IList<CarbonFileResult> sources, CarbonFile target, JavaScriptBuildingContext context, bool useTempFileForProcessing = false)
             where T : IContentProcessor
         {
             Diagnostic.Info("Building {0} {1} into {2}", sources.Count, buildName, target);
@@ -145,10 +146,10 @@
                 }
             }
 
-            this.TraceProcessorResult(processor, $"Building {buildName}");
+            BuildingUtils.TraceProcessorResult(processor, $"Building {buildName}");
         }
 
-        private void DoBuildMultiple<T>(string buildName, IList<CarbonFileResult> sources, ProcessingContext context)
+        private void DoBuildMultiple<T>(string buildName, IList<CarbonFileResult> sources, JavaScriptBuildingContext context)
             where T : IContentProcessor
         {
             Diagnostic.Info("Building {0} files for {1}", sources.Count, buildName);
@@ -163,26 +164,7 @@
                 processor.Process(file.Absolute);
             }
             
-            this.TraceProcessorResult(processor, $"Building {buildName}");
-        }
-
-        private void TraceProcessorResult(IContentProcessor processor, string name)
-        {
-            Diagnostic.Info("");
-            Diagnostic.Info("Result for {0}", name);
-            Diagnostic.Info(" -------------------");
-            foreach (string warning in processor.Context.Warnings)
-            {
-                Diagnostic.Warning(" - WARNING: {0}", warning);
-            }
-
-            foreach (string error in processor.Context.Errors)
-            {
-                Diagnostic.Error(" - ERROR: {0}", error);
-            }
-
-            Diagnostic.Info("");
-            Diagnostic.Info("{0} Done with {1} Errors, {2} Warnings\n\n", name, processor.Context.Errors.Count, processor.Context.Warnings.Count);
+            BuildingUtils.TraceProcessorResult(processor, $"Building {buildName}");
         }
     }
 }

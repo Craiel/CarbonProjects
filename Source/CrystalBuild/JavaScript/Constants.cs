@@ -1,4 +1,4 @@
-﻿namespace CarbonCore.Applications.CrystalBuild
+﻿namespace CarbonCore.Applications.CrystalBuild.JavaScript
 {
     using CarbonCore.Utils.IO;
 

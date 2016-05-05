@@ -1,11 +1,11 @@
-﻿namespace CarbonCore.Applications.CrystalBuild.Logic.Processors
+﻿namespace CarbonCore.Applications.CrystalBuild.JavaScript.Logic.Processors
 {
     using System;
     using System.Collections.Generic;
 
+    using CarbonCore.Applications.CrystalBuild.JavaScript.Contracts.Processors;
+    using CarbonCore.CrystalBuild.Logic;
     using CarbonCore.Utils.IO;
-
-    using CrystalBuild.Contracts.Processors;
 
     public class TemplateProcessor : ContentProcessor, ITemplateProcessor
     {

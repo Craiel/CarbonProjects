@@ -1,4 +1,4 @@
-﻿namespace CarbonCore.Applications.CrystalBuild.Contracts.Processors
+﻿namespace CarbonCore.Applications.CrystalBuild.JavaScript.Contracts.Processors
 {
     using System.Collections.Generic;
 
