@@ -4,6 +4,7 @@
     using System.Collections.Generic;
 
     using CarbonCore.Modules.D3Theory.Data;
+    using CarbonCore.Modules.D3Theory.Logic.Enums;
 
     public interface IAttributeSet
     {

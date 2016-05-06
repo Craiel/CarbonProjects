@@ -2,6 +2,8 @@
 {
     using System.Collections.Generic;
 
+    using CarbonCore.Modules.D3Theory.Logic.Enums;
+
     public static class Defaults
     {
         // -------------------------------------------------------------------

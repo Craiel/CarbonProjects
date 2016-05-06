@@ -2,26 +2,28 @@
 {
     using System.Collections.Generic;
 
+    using CarbonCore.CrystalBuild.Data;
     using CarbonCore.Utils.IO;
 
     using Newtonsoft.Json;
 
     [JsonObject(MemberSerialization.OptOut)]
-    public class ProjectGenerationConfig
+    public class CSharpProjectConfig
     {
         // -------------------------------------------------------------------
         // Constructor
         // -------------------------------------------------------------------
-        public ProjectGenerationConfig()
+        public CSharpProjectConfig()
         {
-            this.Sources = new List<CarbonDirectoryFilter>();
+            this.BuildProjects = new List<BuildProjectConfiguration>();
         }
 
         // -------------------------------------------------------------------
         // Public
         // -------------------------------------------------------------------
-        public IList<CarbonDirectoryFilter> Sources { get; set; }
+        [JsonIgnore]
+        public CarbonDirectory ProjectRoot { get; set; }
 
-        public CarbonFile Template { get; set; }
+        public IList<BuildProjectConfiguration> BuildProjects { get; set; }
     }
 }

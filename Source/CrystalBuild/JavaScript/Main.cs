@@ -49,9 +49,6 @@
         // -------------------------------------------------------------------
         protected override void StartFinished()
         {
-            // Set the default locale to english
-            Localization.CurrentCulture = LocaleConstants.LocaleEnglishUS;
-
             if (this.configFileName == null)
             {
                 this.Arguments.PrintArgumentUse();
@@ -65,8 +62,6 @@
 
             this.config.Load(this.configFileName);
             this.DoBuildProject();
-
-            Localization.SaveDictionaries();
         }
 
         protected override bool RegisterCommandLineArguments()

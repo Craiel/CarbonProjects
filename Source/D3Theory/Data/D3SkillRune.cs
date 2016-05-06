@@ -3,6 +3,8 @@
     using System.Collections.Generic;
     using System.ComponentModel;
 
+    using CarbonCore.Modules.D3Theory.Logic.Enums;
+
     using Newtonsoft.Json;
     using Newtonsoft.Json.Converters;
 

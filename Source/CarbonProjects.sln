@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarbonCore.Applications.CFS.UI", "CFS\CarbonCore.Applications.CFS.UI.csproj", "{2FF7D9C8-1A44-4EFD-B982-90F44A0A338B}"
 EndProject
@@ -82,6 +82,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarbonCore.Applications.CrystalBuild.CSharp", "CrystalBuild\CSharp\CarbonCore.Applications.CrystalBuild.CSharp.csproj", "{60C57684-A20D-4857-AC5F-254C0FCEEC6B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarbonCore.CrystalBuild", "..\..\CarbonCore\Source\CrystalBuild\CarbonCore.CrystalBuild.csproj", "{D2C2544A-15A6-40D6-BBA2-2EE1C0B56486}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarbonCore.Applications.CrystalBuild.UI", "CrystalBuild\UI\CarbonCore.Applications.CrystalBuild.UI.csproj", "{90873198-FEA4-440B-9A5B-BB201CED4BEC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarbonCore.CodeGeneration", "..\..\CarbonCore\Source\CodeGeneration\CarbonCore.CodeGeneration.csproj", "{9CB52544-9944-4AFD-8335-8397062CBF2F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -331,6 +335,22 @@ Global
 		{D2C2544A-15A6-40D6-BBA2-2EE1C0B56486}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D2C2544A-15A6-40D6-BBA2-2EE1C0B56486}.Release|x64.ActiveCfg = Release|Any CPU
 		{D2C2544A-15A6-40D6-BBA2-2EE1C0B56486}.Release|x64.Build.0 = Release|Any CPU
+		{90873198-FEA4-440B-9A5B-BB201CED4BEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90873198-FEA4-440B-9A5B-BB201CED4BEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90873198-FEA4-440B-9A5B-BB201CED4BEC}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{90873198-FEA4-440B-9A5B-BB201CED4BEC}.Debug|x64.Build.0 = Debug|Any CPU
+		{90873198-FEA4-440B-9A5B-BB201CED4BEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90873198-FEA4-440B-9A5B-BB201CED4BEC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90873198-FEA4-440B-9A5B-BB201CED4BEC}.Release|x64.ActiveCfg = Release|Any CPU
+		{90873198-FEA4-440B-9A5B-BB201CED4BEC}.Release|x64.Build.0 = Release|Any CPU
+		{9CB52544-9944-4AFD-8335-8397062CBF2F}.Debug|Any CPU.ActiveCfg = Release|Any CPU
+		{9CB52544-9944-4AFD-8335-8397062CBF2F}.Debug|Any CPU.Build.0 = Release|Any CPU
+		{9CB52544-9944-4AFD-8335-8397062CBF2F}.Debug|x64.ActiveCfg = Release|Any CPU
+		{9CB52544-9944-4AFD-8335-8397062CBF2F}.Debug|x64.Build.0 = Release|Any CPU
+		{9CB52544-9944-4AFD-8335-8397062CBF2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9CB52544-9944-4AFD-8335-8397062CBF2F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9CB52544-9944-4AFD-8335-8397062CBF2F}.Release|x64.ActiveCfg = Release|Any CPU
+		{9CB52544-9944-4AFD-8335-8397062CBF2F}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -373,6 +393,8 @@ Global
 		{00C02B58-FA9B-4A3B-8877-AF9FCF195952} = {96537524-6C6A-4BD7-9EC3-BDBA1AB215A6}
 		{27EB548E-F5C4-4883-AD5C-99A908C5C8DE} = {554A9747-993D-48D9-98DB-69840178C64E}
 		{60C57684-A20D-4857-AC5F-254C0FCEEC6B} = {27EB548E-F5C4-4883-AD5C-99A908C5C8DE}
-		{D2C2544A-15A6-40D6-BBA2-2EE1C0B56486} = {27EB548E-F5C4-4883-AD5C-99A908C5C8DE}
+		{D2C2544A-15A6-40D6-BBA2-2EE1C0B56486} = {0DE17305-72A8-431D-BBAE-2A58FA607CFC}
+		{90873198-FEA4-440B-9A5B-BB201CED4BEC} = {27EB548E-F5C4-4883-AD5C-99A908C5C8DE}
+		{9CB52544-9944-4AFD-8335-8397062CBF2F} = {0DE17305-72A8-431D-BBAE-2A58FA607CFC}
 	EndGlobalSection
 EndGlobal

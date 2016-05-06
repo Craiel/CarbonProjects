@@ -4,7 +4,6 @@
 
     using CarbonCore.Applications.D3Theory.Viewer.Contracts;
     using CarbonCore.Applications.D3Theory.Viewer.View;
-    using CarbonCore.ToolFramework.Logic;
     using CarbonCore.ToolFramework.Windows.Contracts.ViewModels;
     using CarbonCore.ToolFramework.Windows.Logic;
     using CarbonCore.Utils.Contracts.IoC;
@@ -27,14 +26,8 @@
         // -------------------------------------------------------------------
         // Public
         // -------------------------------------------------------------------
-        public override string Name
-        {
-            get
-            {
-                return ToolName;
-            }
-        }
-        
+        public override string Name => ToolName;
+
         protected override IBaseViewModel DoInitializeMainViewModel()
         {
             return this.factory.Resolve<ID3ViewerMainViewModel>();

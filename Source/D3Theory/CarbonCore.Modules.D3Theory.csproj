@@ -53,12 +53,17 @@
     <Compile Include="Data\Defaults.WitchDoctor.cs" />
     <Compile Include="Data\Defaults.Wizard.cs" />
     <Compile Include="Data\Defaults.Barbarian.cs" />
-    <Compile Include="Data\D3EntityAttribute.cs" />
-    <Compile Include="Data\D3GearType.cs" />
-    <Compile Include="Data\D3SkillAttribute.cs" />
+    <Compile Include="Logic\Enums\D3EntityAttribute.cs" />
+    <Compile Include="Logic\Enums\D3GearType.cs" />
+    <Compile Include="Logic\Enums\D3SkillAttribute.cs" />
     <Compile Include="Data\Defaults.DemonHunter.cs" />
     <Compile Include="Data\SimulationSampleSet.cs" />
-    <Compile Include="Data\SimulationStat.cs" />
+    <Compile Include="Logic\Enums\EnumValues.cs">
+      <DependentUpon>EnumValues.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Logic\Enums\SimulationStat.cs" />
     <Compile Include="Logic\AttributeSet.cs" />
     <Compile Include="Logic\Entity.cs" />
     <Compile Include="Logic\ExecuteSkillResult.cs" />
@@ -67,9 +72,9 @@
     <Compile Include="Logic\SimulateShared.cs" />
     <Compile Include="Logic\SkillCombo.cs" />
     <Compile Include="MainData.cs" />
-    <Compile Include="Data\D3Attribute.cs" />
+    <Compile Include="Logic\Enums\D3Attribute.cs" />
     <Compile Include="Data\D3Class.cs" />
-    <Compile Include="Data\D3DamageType.cs" />
+    <Compile Include="Logic\Enums\D3DamageType.cs" />
     <Compile Include="Data\D3Gear.cs" />
     <Compile Include="Data\D3Generic.cs" />
     <Compile Include="Data\D3Skill.cs" />
@@ -97,6 +102,15 @@
       <Project>{a46b19fc-eb4a-4bda-97e1-5b522fb4cc6b}</Project>
       <Name>CarbonCore.Utils.Edge</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Logic\Enums\EnumValues.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>EnumValues.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

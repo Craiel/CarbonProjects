@@ -6,6 +6,7 @@
     using System.Linq;
     using System.Text;
 
+    using CarbonCore.Modules.D3Theory.Logic.Enums;
     using CarbonCore.Utils;
 
     using Newtonsoft.Json;

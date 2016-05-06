@@ -1,4 +1,4 @@
-﻿namespace D3Theory.Viewer
+﻿namespace CarbonCore.Applications.D3Theory.Viewer
 {
     public static class StaticResources
     {

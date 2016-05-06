@@ -105,7 +105,7 @@
       <Project>{e99c6721-99a5-4dc3-bd9d-dc88f65d217a}</Project>
       <Name>CarbonCore.Utils.Edge.CommandLine</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\..\CarbonCore\Source\CrystalBuild\CarbonCore.CrystalBuild.csproj">
+    <ProjectReference Include="$(CCSOURCEDIR)\CrystalBuild\CarbonCore.CrystalBuild.csproj">
       <Project>{D2C2544A-15A6-40D6-BBA2-2EE1C0B56486}</Project>
       <Name>CarbonCore.CrystalBuild</Name>
     </ProjectReference>

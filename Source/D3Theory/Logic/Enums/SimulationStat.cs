@@ -1,4 +1,4 @@
-﻿namespace CarbonCore.Modules.D3Theory.Data
+﻿namespace CarbonCore.Modules.D3Theory.Logic.Enums
 {
     public enum SimulationStat
     {

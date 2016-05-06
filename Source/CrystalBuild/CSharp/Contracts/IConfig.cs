@@ -3,7 +3,7 @@
     using CarbonCore.Applications.CrystalBuild.CSharp.Data;
     using CarbonCore.Utils.Contracts;
 
-    public interface IConfig : IJsonConfig<BuildConfig>
+    public interface IConfig : IJsonConfig<CSharpProjectConfig>
     {
     }
 }

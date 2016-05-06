@@ -2,6 +2,7 @@
 {
     using System.Collections.Generic;
 
+    using CarbonCore.Modules.D3Theory.Logic.Enums;
     using CarbonCore.Utils.IO;
 
     using Newtonsoft.Json;

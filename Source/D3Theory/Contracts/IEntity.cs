@@ -3,6 +3,7 @@
     using System;
 
     using CarbonCore.Modules.D3Theory.Data;
+    using CarbonCore.Modules.D3Theory.Logic.Enums;
 
     public interface IEntity : IDisposable
     {

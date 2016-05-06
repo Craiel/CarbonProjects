@@ -6,7 +6,7 @@
     using CarbonCore.Utils.IO;
     using CarbonCore.Utils.Json;
 
-    public class Config : JsonConfig<BuildConfig>, IConfig
+    public class Config : JsonConfig<CSharpProjectConfig>, IConfig
     {
         // -------------------------------------------------------------------
         // Public
@@ -28,9 +28,9 @@
         // -------------------------------------------------------------------
         // Protected
         // -------------------------------------------------------------------
-        protected override BuildConfig GetDefault()
+        protected override CSharpProjectConfig GetDefault()
         {
-            return new BuildConfig();
+            return new CSharpProjectConfig();
         }
     }
 }

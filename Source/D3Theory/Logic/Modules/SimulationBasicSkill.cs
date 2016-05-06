@@ -4,6 +4,7 @@
 
     using CarbonCore.Modules.D3Theory.Contracts;
     using CarbonCore.Modules.D3Theory.Data;
+    using CarbonCore.Modules.D3Theory.Logic.Enums;
 
     public class SimulationBasicSkill : ISimulationModule
     {
