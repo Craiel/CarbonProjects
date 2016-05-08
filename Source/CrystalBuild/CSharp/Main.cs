@@ -2,22 +2,22 @@
 {
     using CarbonCore.Applications.CrystalBuild.Contracts;
     using CarbonCore.Applications.CrystalBuild.CSharp.Contracts;
-    using CarbonCore.CrystalBuild.Data;
-    using CarbonCore.CrystalBuild.Logic.Enums;
+    using CarbonCore.CrystalBuild.Contracts;
     using CarbonCore.ToolFramework.Console.Logic;
     using CarbonCore.Utils.Contracts.IoC;
     using CarbonCore.Utils.Edge.CommandLine.Contracts;
     using CarbonCore.Utils.IO;
+    using CarbonCore.Utils.Lua.Logic;
 
     public class Main : ConsoleApplicationBase, IMain
     {
         private readonly IConfig config;
         private readonly IBuildLogic logic;
 
-        private CarbonFile configFileName;
+        private readonly ICrystalBuildConfigurationRunTime configRuntime;
 
-        private bool makeSampleConfig;
-
+        private CarbonFile scriptFileName;
+        
         // -------------------------------------------------------------------
         // Constructor
         // -------------------------------------------------------------------
@@ -26,6 +26,7 @@
         {
             this.config = factory.Resolve<IConfig>();
             this.logic = factory.Resolve<IBuildLogic>();
+            this.configRuntime = factory.Resolve<ICrystalBuildConfigurationRunTime>();
         }
 
         // -------------------------------------------------------------------
@@ -38,31 +39,35 @@
         // -------------------------------------------------------------------
         protected override void StartFinished()
         {
-            if (this.configFileName == null)
+            if (this.scriptFileName == null)
             {
                 this.Arguments.PrintArgumentUse();
                 return;
             }
             
-            this.config.Load(this.configFileName);
+            this.config.Load(new CarbonFile(Constants.BuildConfigFileName));
 
-            if (this.makeSampleConfig)
+            if (!this.PrepareConfigurationRuntime())
             {
-                this.GenerateSampleConfig();
                 return;
             }
 
-            this.DoBuildProject();
+            if (!this.RunBuildScript())
+            {
+                return;
+            }
+
+            if (!this.ExecuteBuild())
+            {
+                return;
+            }
         }
 
         protected override bool RegisterCommandLineArguments()
         {
-            ICommandLineSwitchDefinition definition = this.Arguments.Define("p", "projectFile", x => this.configFileName = new CarbonFile(x));
+            ICommandLineSwitchDefinition definition = this.Arguments.Define("s", "script", x => this.scriptFileName = new CarbonFile(x));
             definition.RequireArgument = true;
-            definition.Description = "The project file to compile";
-
-            definition = this.Arguments.Define("makeSample", x => this.makeSampleConfig = true);
-            definition.Description = "Create a sample configuration !!! Note: will overwrite the -p parameter config !!!";
+            definition.Description = "The script to process";
             
             return true;
         }
@@ -70,35 +75,24 @@
         // -------------------------------------------------------------------
         // Private
         // -------------------------------------------------------------------
-        private void DoBuildProject()
+        private bool PrepareConfigurationRuntime()
         {
-            foreach (BuildProjectConfiguration buildProject in this.config.Current.BuildProjects)
-            {
-                // this.logic.BuildProjectFile();
-            }
+            return true;
         }
 
-        private void GenerateSampleConfig()
+        private bool RunBuildScript()
         {
-            this.config.Reset();
+            LuaExecutionResult result = this.configRuntime.Execute(this.scriptFileName);
+            return result.Success;
+        }
 
-            var sampleConfig = new BuildProjectConfiguration();
-            var debugConfig = new BuildConfiguration { Type = BuildTargetType.Library };
-            debugConfig.Defines.Add("EXAMPLE_DEFINE");
-            debugConfig.AssemblyName = "Test.Project";
-            debugConfig.Name = "Debug";
-            debugConfig.Id = "TEST|DEBUG";
-            debugConfig.TargetFramework = "v4.5";
-
-            sampleConfig.References.Add(DefaultBuildReferences.DefaultReferenceSystem);
-            sampleConfig.References.Add(DefaultBuildReferences.DefaultReferenceSystemCore);
-            sampleConfig.References.Add(DefaultBuildReferences.DefaultReferenceSystemData);
-            sampleConfig.References.Add(DefaultBuildReferences.DefaultReferenceSystemXml);
-
-            sampleConfig.BuildConfigurations.Add(debugConfig);
-            sampleConfig.SourceMapping.Add(new CarbonDirectoryFilter(new CarbonDirectory("."), "*.cs"), null);
-            this.config.Current.BuildProjects.Add(sampleConfig);
-            this.config.Save(this.configFileName);
+        private bool ExecuteBuild()
+        {
+            return true;
+            /*foreach (BuildProjectConfiguration buildProject in this.config.Current.BuildProjects)
+            {
+                // this.logic.BuildProjectFile();
+            }*/
         }
     }
 }

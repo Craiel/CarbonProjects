@@ -4,6 +4,7 @@
     using CarbonCore.Applications.CrystalBuild.CSharp;
     using CarbonCore.Applications.CrystalBuild.CSharp.Contracts;
     using CarbonCore.Applications.CrystalBuild.CSharp.Logic;
+    using CarbonCore.CrystalBuild.IoC;
     using CarbonCore.ToolFramework.Console.IoC;
     using CarbonCore.Utils.Edge.CommandLine.IoC;
     using CarbonCore.Utils.Edge.IoC;
@@ -12,12 +13,13 @@
     [DependsOnModule(typeof(UtilsEdgeModule))]
     [DependsOnModule(typeof(UtilsCommandLineModule))]
     [DependsOnModule(typeof(ToolFrameworkConsoleModule))]
-    public class CrystalBuildModule : CarbonQuickModule
+    [DependsOnModule(typeof(CrystalBuildModule))]
+    public class CrystalBuildCSharpModule : CarbonQuickModule
     {
         // -------------------------------------------------------------------
         // Public
         // -------------------------------------------------------------------
-        public CrystalBuildModule()
+        public CrystalBuildCSharpModule()
         {
             this.For<IMain>().Use<Main>();
             this.For<IConfig>().Use<Config>();

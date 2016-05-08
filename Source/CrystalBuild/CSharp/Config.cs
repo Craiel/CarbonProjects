@@ -6,7 +6,7 @@
     using CarbonCore.Utils.IO;
     using CarbonCore.Utils.Json;
 
-    public class Config : JsonConfig<CSharpProjectConfig>, IConfig
+    public class Config : JsonConfig<CSharpBuildConfig>, IConfig
     {
         // -------------------------------------------------------------------
         // Public
@@ -16,10 +16,10 @@
             bool result = base.Load(file);
 
             // Set the project root
-            this.Current.ProjectRoot = file.GetDirectory();
-            if (this.Current.ProjectRoot == null || this.Current.ProjectRoot.IsNull)
+            this.Current.WorkingDirectory = file.GetDirectory();
+            if (this.Current.WorkingDirectory == null || this.Current.WorkingDirectory.IsNull)
             {
-                this.Current.ProjectRoot = RuntimeInfo.WorkingDirectory;
+                this.Current.WorkingDirectory = RuntimeInfo.WorkingDirectory;
             }
 
             return result;
@@ -28,9 +28,9 @@
         // -------------------------------------------------------------------
         // Protected
         // -------------------------------------------------------------------
-        protected override CSharpProjectConfig GetDefault()
+        protected override CSharpBuildConfig GetDefault()
         {
-            return new CSharpProjectConfig();
+            return new CSharpBuildConfig();
         }
     }
 }

@@ -12,7 +12,7 @@
         // -------------------------------------------------------------------
         public static void Main(string[] args)
         {
-            var container = CarbonContainerAutofacBuilder.Build<CrystalBuildModule>();
+            var container = CarbonContainerAutofacBuilder.Build<CrystalBuildJavaModule>();
             container.Resolve<IMain>().Start();
 
             Profiler.TraceProfilerStatistics();

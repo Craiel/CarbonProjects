@@ -5,6 +5,8 @@
         // -------------------------------------------------------------------
         // Public
         // -------------------------------------------------------------------
+        public const string BuildConfigFileName = "CrystalBuild.global.config";
+
         public const string FilterSource = "*" + Utils.Constants.ExtensionCSharp;
     }
 }

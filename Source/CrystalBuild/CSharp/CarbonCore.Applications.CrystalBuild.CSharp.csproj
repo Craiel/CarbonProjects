@@ -41,7 +41,7 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Data\CSharpProjectConfig.cs" />
+    <Compile Include="Data\CSharpBuildConfig.cs" />
     <Compile Include="Config.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="Contracts\IBuildLogic.cs" />
@@ -92,6 +92,10 @@
       <Project>{D2C2544A-15A6-40D6-BBA2-2EE1C0B56486}</Project>
       <Name>CarbonCore.CrystalBuild</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\..\CarbonCore\Source\Utils\Lua\CarbonCore.Utils.Lua.csproj">
+      <Project>{f85d8edf-7c3c-42df-aece-a1330bbf246e}</Project>
+      <Name>CarbonCore.Utils.Lua</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -99,8 +103,7 @@
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>
-    </PostBuildEvent>
+    <PostBuildEvent>xcopy /s /y "$(SolutionDir)packages\NLua.1.3.2.1\lib\native\*.*" "$(TargetDir)"</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

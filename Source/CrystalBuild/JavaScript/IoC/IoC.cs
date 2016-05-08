@@ -5,6 +5,7 @@
     using CarbonCore.Applications.CrystalBuild.JavaScript.Logic;
     using CarbonCore.Applications.CrystalBuild.JavaScript.Logic.Processors;
     using CarbonCore.Applications.CrystalBuild.JavaScript.Logic.Processors.Excel;
+    using CarbonCore.CrystalBuild.IoC;
     using CarbonCore.ToolFramework.Console.IoC;
     using CarbonCore.Utils.Edge.CommandLine.IoC;
     using CarbonCore.Utils.Edge.IoC;
@@ -13,12 +14,13 @@
     [DependsOnModule(typeof(UtilsEdgeModule))]
     [DependsOnModule(typeof(UtilsCommandLineModule))]
     [DependsOnModule(typeof(ToolFrameworkConsoleModule))]
-    public class CrystalBuildModule : CarbonQuickModule
+    [DependsOnModule(typeof(CrystalBuildModule))]
+    public class CrystalBuildJavaModule : CarbonQuickModule
     {
         // -------------------------------------------------------------------
         // Public
         // -------------------------------------------------------------------
-        public CrystalBuildModule()
+        public CrystalBuildJavaModule()
         {
             this.For<IMain>().Use<Main>();
             this.For<IConfig>().Use<Config>();

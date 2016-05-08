@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarbonCore.Applications.CFS.UI", "CFS\CarbonCore.Applications.CFS.UI.csproj", "{2FF7D9C8-1A44-4EFD-B982-90F44A0A338B}"
 EndProject
@@ -86,6 +86,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarbonCore.Applications.CrystalBuild.UI", "CrystalBuild\UI\CarbonCore.Applications.CrystalBuild.UI.csproj", "{90873198-FEA4-440B-9A5B-BB201CED4BEC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarbonCore.CodeGeneration", "..\..\CarbonCore\Source\CodeGeneration\CarbonCore.CodeGeneration.csproj", "{9CB52544-9944-4AFD-8335-8397062CBF2F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarbonCore.Utils.Lua", "..\..\CarbonCore\Source\Utils\Lua\CarbonCore.Utils.Lua.csproj", "{F85D8EDF-7C3C-42DF-AECE-A1330BBF246E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -351,6 +353,14 @@ Global
 		{9CB52544-9944-4AFD-8335-8397062CBF2F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9CB52544-9944-4AFD-8335-8397062CBF2F}.Release|x64.ActiveCfg = Release|Any CPU
 		{9CB52544-9944-4AFD-8335-8397062CBF2F}.Release|x64.Build.0 = Release|Any CPU
+		{F85D8EDF-7C3C-42DF-AECE-A1330BBF246E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F85D8EDF-7C3C-42DF-AECE-A1330BBF246E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F85D8EDF-7C3C-42DF-AECE-A1330BBF246E}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{F85D8EDF-7C3C-42DF-AECE-A1330BBF246E}.Debug|x64.Build.0 = Debug|Any CPU
+		{F85D8EDF-7C3C-42DF-AECE-A1330BBF246E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F85D8EDF-7C3C-42DF-AECE-A1330BBF246E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F85D8EDF-7C3C-42DF-AECE-A1330BBF246E}.Release|x64.ActiveCfg = Release|Any CPU
+		{F85D8EDF-7C3C-42DF-AECE-A1330BBF246E}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -396,5 +406,6 @@ Global
 		{D2C2544A-15A6-40D6-BBA2-2EE1C0B56486} = {0DE17305-72A8-431D-BBAE-2A58FA607CFC}
 		{90873198-FEA4-440B-9A5B-BB201CED4BEC} = {27EB548E-F5C4-4883-AD5C-99A908C5C8DE}
 		{9CB52544-9944-4AFD-8335-8397062CBF2F} = {0DE17305-72A8-431D-BBAE-2A58FA607CFC}
+		{F85D8EDF-7C3C-42DF-AECE-A1330BBF246E} = {729EA71E-2F63-4F2C-A368-97F60BEAFE13}
 	EndGlobalSection
 EndGlobal
