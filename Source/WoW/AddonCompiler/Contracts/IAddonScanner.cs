@@ -1,7 +1,9 @@
 ﻿namespace AddonCompiler.Contracts
 {
+    using AddonCompiler.Logic;
+
     public interface IAddonScanner
     {
-        bool Run(ICompileContext context);
+        bool Run(CompileContext context);
     }
 }

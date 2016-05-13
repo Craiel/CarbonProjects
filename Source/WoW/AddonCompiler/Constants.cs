@@ -15,6 +15,15 @@
         public const string ExtensionTTF = ".ttf";
         public const string ExtensionOGG = ".ogg";
 
+        public const string XmlNodeScript = "Script";
+        public const string XmlNodeInclude = "Include";
+        public const string XmlScriptFileAttribute = "file";
+        public const string XmlIncludeFileAttribute = "file";
+
+        public const string MetaDependencies = "Dependencies";
+
+        public const string BlizzardAddonPrefix = "Blizzard_";
+
         public static readonly string[] ResourceExtensions = { ExtensionTGA, ExtensionBLP, ExtensionTTF, ExtensionOGG };
     }
 }

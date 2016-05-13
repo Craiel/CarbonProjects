@@ -1,6 +1,7 @@
 ﻿namespace AddonCompiler
 {
     using AddonCompiler.Contracts;
+    using AddonCompiler.Logic;
 
     using CarbonCore.ToolFramework.Console.Logic;
     using CarbonCore.Utils.Contracts.IoC;
@@ -70,7 +71,7 @@
 
             this.config.Load(new CarbonFile(Constants.ConfigFileName));
 
-            var context = this.factory.Resolve<ICompileContext>();
+            var context = new CompileContext();
             context.Initialize(this.sourceDirectory, this.targetDirectory);
 
             var scanner = this.factory.Resolve<IAddonScanner>();

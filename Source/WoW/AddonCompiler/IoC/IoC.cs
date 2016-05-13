@@ -20,8 +20,6 @@
 
             this.For<IAddonScanner>().Use<AddonScanner>().Singleton();
             this.For<ICompiler>().Use<Compiler>().Singleton();
-
-            this.For<ICompileContext>().Use<CompileContext>();
         }
     }
 }
