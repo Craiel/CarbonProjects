@@ -2,8 +2,10 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.IO;
     using System.Linq;
     using System.Text;
+    using System.Text.RegularExpressions;
     using System.Xml;
 
     using AddonCompiler.Contracts;
@@ -17,6 +19,8 @@
 
     public class Compiler : ICompiler
     {
+        private static readonly Regex AddonInitParamRegex = new Regex(@"^(local\s.*?=.*?)(\.\.\.)(.*)$", RegexOptions.IgnoreCase);
+
         // -------------------------------------------------------------------
         // Public
         // -------------------------------------------------------------------
@@ -161,7 +165,11 @@
                 }
                 else
                 {
-                    content.AbsoluteFile.CopyTo(targetAbsoluteFile, true);
+                    if (!WriteScriptContentToTarget(content, targetAbsoluteFile))
+                    {
+                        continue;
+                    }
+
                     filesCopied++;
                 }
 
@@ -184,6 +192,45 @@
             builtTocFile.WriteAsString(contentTocBuilder.ToString());
 
             Diagnostic.Info("Finished Compile with {0} content files and {1} resources", filesCopied, resourcesCopied);
+        }
+
+        private static bool WriteScriptContentToTarget(CompileContent content, CarbonFile target)
+        {
+            IList<string> contents = new List<string>();
+            using (var stream = content.AbsoluteFile.OpenRead())
+            {
+                using (var reader = new StreamReader(stream))
+                {
+                    while (!reader.EndOfStream)
+                    {
+                        string line = reader.ReadLine();
+                        contents.Add(line);
+                    }
+                }
+            }
+
+            for(int i = 0; i < contents.Count; i++)
+            {
+                string line = contents[i];
+                string trimmedLine = line.Trim().TrimStart('\t');
+                if (trimmedLine.StartsWith("--"))
+                {
+                    continue;
+                }
+
+                Match match = AddonInitParamRegex.Match(line);
+                if (match.Success)
+                {
+                    string replacementLine = String.Concat(match.Groups[1].Value, $"GetAddonGlobalArgs(\"{content.Addon.Name}\")", match.Groups[3].Value);
+                    contents[i] = replacementLine;
+
+                    Diagnostic.Warning("Adjusting lua parameters: {0}, line {1}\n{2}\n{3}", content.AbsoluteFile, i, line, replacementLine);
+                }
+            }
+
+            target.WriteAsString(string.Join(Environment.NewLine, contents));
+
+            return true;
         }
 
         private static bool WriteXmlContentToTarget(CarbonFile source, CarbonFile target)
