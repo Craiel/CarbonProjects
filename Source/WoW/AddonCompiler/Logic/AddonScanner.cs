@@ -107,13 +107,13 @@
                 return;
             }
 
-            if (trimmedLine.EndsWith(Constants.ExtensionLUA))
+            if (trimmedLine.EndsWith(Constants.ExtensionLua))
             {
                 context.CurrentScanEntry.AddContent(new AddonContent(new CarbonFile(trimmedLine), context.CurrentScanEntry.RootDirectory));
                 return;
             }
 
-            if (trimmedLine.EndsWith(Constants.ExtensionXML))
+            if (trimmedLine.EndsWith(Constants.ExtensionXml))
             {
                 AddonContent xmlContent = ReadXMLContent(new CarbonFile(line), context.CurrentScanEntry.RootDirectory);
                 if (xmlContent != null)
@@ -159,7 +159,7 @@
                     {
                         string nestedContent = node.Attributes[Constants.XmlIncludeFileAttribute].Value;
                         CarbonFile nestedContentFile = new CarbonFile(nestedContent.Trim());
-                        if (nestedContentFile.Extension == Constants.ExtensionLUA)
+                        if (nestedContentFile.Extension == Constants.ExtensionLua)
                         {
                             CarbonDirectory nestedRoot = file.GetDirectory() == null
                                                              ? rootDirectory

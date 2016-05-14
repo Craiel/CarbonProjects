@@ -118,7 +118,7 @@
             IDictionary<string, CompileContent> duplicateCheck = new Dictionary<string, CompileContent>();
             foreach (CompileContent content in new List<CompileContent>(context.FullContentList))
             {
-                if (!content.AbsoluteFile.Extension.Equals(Constants.ExtensionLUA))
+                if (!content.AbsoluteFile.Extension.Equals(Constants.ExtensionLua))
                 {
                     // This check only applies to .lua scripts
                     continue;
@@ -154,7 +154,7 @@
                 CarbonFile targetRelativeFile = new CarbonDirectory(content.Addon.Name).ToFile(content.RelativeFile);
                 CarbonFile targetAbsoluteFile = context.Target.ToFile(targetRelativeFile);
 
-                if (content.AbsoluteFile.Extension == Constants.ExtensionXML)
+                if (content.AbsoluteFile.Extension == Constants.ExtensionXml)
                 {
                     if (!WriteXmlContentToTarget(content.AbsoluteFile, targetAbsoluteFile))
                     {
