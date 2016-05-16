@@ -69,7 +69,7 @@
                 return;
             }
             
-            this.config.Load(this.configFile);
+            this.config.Load(RuntimeInfo.Path.ToFile(this.configFile));
 
             this.assetDirectory = this.projectDirectory.ToDirectory(Constants.DirectoryAssets);
 
