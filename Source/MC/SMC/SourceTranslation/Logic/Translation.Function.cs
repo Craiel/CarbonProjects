@@ -145,7 +145,7 @@
 
                     case TermType.Identifier:
                         {
-                            HandleIdentifierForClassContent(functionData, token, inThrows);
+                            this.HandleIdentifierForClassContent(functionData, token, inThrows);
                             continue;
                         }
                 }

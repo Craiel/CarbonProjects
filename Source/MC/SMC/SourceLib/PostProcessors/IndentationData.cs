@@ -4,7 +4,7 @@
 
     using SMC.SourceLib.PostProcessing;
 
-    public class IndentationData : ProcessingData
+    public class IndentationData : BaseProcessingData
     {
         // -------------------------------------------------------------------
         // Public

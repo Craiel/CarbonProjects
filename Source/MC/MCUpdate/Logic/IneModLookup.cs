@@ -30,7 +30,6 @@
             this.client.Headers.Add("User-Agent: Other");
         }
 
-
         // -------------------------------------------------------------------
         // Public
         // -------------------------------------------------------------------
@@ -122,7 +121,6 @@
                     NEModInfo existingEntry;
                     if (this.nameLookup.TryGetValue(entry.ModId.ToLowerInvariant(), out existingEntry))
                     {
-                        
                         if (existingEntry.LastUpdated < entry.LastUpdated)
                         {
                             Diagnostic.Warning("Duplicate Mod Info Entry: {0}({1}) - {2}({3}), Replacing with new entry", entry.ModId, entry.Version, existingEntry.ModId, existingEntry.Version);

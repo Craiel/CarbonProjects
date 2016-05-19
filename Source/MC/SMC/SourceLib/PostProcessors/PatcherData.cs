@@ -5,7 +5,7 @@
     using SMC.SourceLib.Patching;
     using SMC.SourceLib.PostProcessing;
 
-    public class PatcherData : ProcessingData
+    public class PatcherData : BaseProcessingData
     {
         // -------------------------------------------------------------------
         // Constructor

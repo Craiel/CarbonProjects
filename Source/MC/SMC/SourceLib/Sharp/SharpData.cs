@@ -1,7 +1,7 @@
 ﻿namespace SMC.SourceLib.Sharp
 {
-    using SMC.SourceLib.Intermediate;
     using System.Collections.Generic;
+    using SMC.SourceLib.Intermediate;
 
     public static class SharpData
     {

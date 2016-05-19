@@ -18,13 +18,13 @@
 
     public class JavaScriptProcessor : ContentProcessor, IJavaScriptProcessor
     {
-        private const string IncludeTestRegex = @"\W{0}\W";
-
         public static readonly Regex IncludeRegex = new Regex(@"\s+(include\((['""]\w+['""])\);)", RegexOptions.IgnoreCase);
         public static readonly Regex ProcessingRegex = new Regex(@"// #If([\w]+)");
         public static readonly Regex StringHashRegex = new Regex(@"\s(StrSha\(['""](.*?)['""]\))");
         public static readonly Regex StringLocRegex = new Regex(@"\s(StrLoc\(['""](.*?)['""]\))");
         public static readonly Regex ResourceImageRegex = new Regex(@"[\W](ResImg\((\w+)\))", RegexOptions.IgnoreCase);
+
+        private const string IncludeTestRegex = @"\W{0}\W";
 
         private readonly IDictionary<string, string> hashCollisionTest;
         

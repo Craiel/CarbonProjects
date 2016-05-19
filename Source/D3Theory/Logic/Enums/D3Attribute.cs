@@ -6,7 +6,6 @@
 
         // Internal
         LifePerVit,
-        
 
         // Primary Attributes
         Str,

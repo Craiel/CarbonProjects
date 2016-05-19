@@ -20,7 +20,8 @@
         // -------------------------------------------------------------------
         // Constructor
         // -------------------------------------------------------------------
-        public Main(IFactory factory) : base(factory)
+        public Main(IFactory factory) 
+            : base(factory)
         {
             this.factory = factory;
 
@@ -87,6 +88,5 @@
                 Diagnostic.Error("Compilation failed: {0}\n{1}", context.LastError, context.LastErrorException?.ToString() ?? "N/A");
             }
         }
-        
     }
 }

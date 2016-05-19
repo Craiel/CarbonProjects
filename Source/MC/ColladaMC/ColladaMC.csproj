@@ -54,7 +54,7 @@
     <Compile Include="Contracts\IColladaMinecraft.cs" />
     <Compile Include="Entry.cs" />
     <Compile Include="ColladaMinecraft.cs" />
-    <Compile Include="IoC\IoC.cs" />
+    <Compile Include="IoC\ColladaMCModule.cs" />
     <Compile Include="Logic\Block.cs" />
     <Compile Include="Logic\Enums\ProcessingMode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

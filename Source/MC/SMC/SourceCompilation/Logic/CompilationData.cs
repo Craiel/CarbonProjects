@@ -22,6 +22,5 @@
         public SharpFile TargetContent { get; set; }
 
         public IList<string> IncludeList { get; private set; }
-        
     }
 }

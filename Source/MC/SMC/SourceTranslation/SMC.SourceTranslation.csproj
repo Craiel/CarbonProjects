@@ -46,7 +46,7 @@
     <Compile Include="Contracts\IConfig.cs" />
     <Compile Include="Contracts\IMain.cs" />
     <Compile Include="Contracts\ITranslation.cs" />
-    <Compile Include="IoC\IoC.cs" />
+    <Compile Include="IoC\SourceTranslationModule.cs" />
     <Compile Include="Logic\TranslationDataIterator.cs" />
     <Compile Include="Logic\Translation.Class.cs" />
     <Compile Include="Logic\TranslationData.cs" />

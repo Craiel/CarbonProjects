@@ -54,7 +54,7 @@
     <Compile Include="Contracts\IMain.cs" />
     <Compile Include="Data\MetaUtilityConfig.cs" />
     <Compile Include="Entry.cs" />
-    <Compile Include="IoC\IoC.cs" />
+    <Compile Include="IoC\MetaFileUtilityModule.cs" />
     <Compile Include="Logic\Enums\MetaUtilityMode.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -7,23 +7,6 @@
     using Newtonsoft.Json.Converters;
 
     [JsonObject(MemberSerialization.OptOut)]
-    public class TempFileFull : TempFileLight
-    {
-        [DefaultValue(null)]
-        public List<TempClass> Classes { get; set; }
-
-        public void AddClass(TempClass value)
-        {
-            if (this.Classes == null)
-            {
-                this.Classes = new List<TempClass>();
-            }
-
-            this.Classes.Add(value);
-        }
-    }
-
-    [JsonObject(MemberSerialization.OptOut)]
     public class TempFileLight : TempData
     {
         // -------------------------------------------------------------------

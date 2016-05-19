@@ -255,7 +255,7 @@
             }
 
             float current = this.finalAttributes[attribute];
-            this.finalAttributes[attribute] += current  * (value / 100);
+            this.finalAttributes[attribute] += current * (value / 100);
         }
 
         private void AddFinalAttribute(D3Attribute attribute, float value)

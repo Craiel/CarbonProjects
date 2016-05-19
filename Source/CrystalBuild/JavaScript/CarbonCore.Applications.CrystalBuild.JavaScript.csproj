@@ -55,7 +55,7 @@
     <Compile Include="Contracts\Processors\IImageProcessor.cs" />
     <Compile Include="Contracts\Processors\ITemplateProcessor.cs" />
     <Compile Include="Entry.cs" />
-    <Compile Include="IoC\IoC.cs" />
+    <Compile Include="IoC\CrystalBuildJavaModule.cs" />
     <Compile Include="Logic\BuildLogic.cs" />
     <Compile Include="Logic\JavaScriptBuildingCache.cs" />
     <Compile Include="Logic\JavaScriptBuildingContext.cs" />

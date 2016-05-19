@@ -4,12 +4,12 @@
 
     using SMC.SourceLib.Contracts;
 
-    public class ProcessingData : IProcessingData
+    public class BaseProcessingData : IProcessingData
     {
         // -------------------------------------------------------------------
         // Constructor
         // -------------------------------------------------------------------
-        public ProcessingData()
+        public BaseProcessingData()
         {
             this.Processed = new List<string>();
         }

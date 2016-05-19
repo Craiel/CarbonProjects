@@ -45,7 +45,7 @@
             foreach (AddonEntry entry in context.ScannedEntries.Values)
             {
                 string dependencyValues;
-                if(entry.Meta.TryGetValue(Constants.MetaDependencies, out dependencyValues))
+                if (entry.Meta.TryGetValue(Constants.MetaDependencies, out dependencyValues))
                 {
                     string[] dependencies = dependencyValues.Split(',');
                     foreach (string dependency in dependencies)
@@ -93,7 +93,6 @@
             {
                 AssembleContentRecursive(context, addon, subContent);
             }
-
 
             CarbonFile absoluteFile = currentContent.RootDirectory.ToFile(currentContent.File);
             if (!absoluteFile.Exists)
@@ -209,7 +208,7 @@
                 }
             }
 
-            for(int i = 0; i < contents.Count; i++)
+            for (int i = 0; i < contents.Count; i++)
             {
                 string line = contents[i];
                 string trimmedLine = line.Trim().TrimStart('\t');
@@ -221,7 +220,7 @@
                 Match match = AddonInitParamRegex.Match(line);
                 if (match.Success)
                 {
-                    string replacementLine = String.Concat(match.Groups[1].Value, $"GetAddonGlobalArgs(\"{content.Addon.Name}\")", match.Groups[3].Value);
+                    string replacementLine = string.Concat(match.Groups[1].Value, $"GetAddonGlobalArgs(\"{content.Addon.Name}\")", match.Groups[3].Value);
                     contents[i] = replacementLine;
 
                     Diagnostic.Warning("Adjusting lua parameters: {0}, line {1}\n{2}\n{3}", content.AbsoluteFile, i, line, replacementLine);

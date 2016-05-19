@@ -5,17 +5,13 @@
     using System.Diagnostics;
     using System.Reflection;
     using System.Threading;
-
     using CarbonCore.ToolFramework.Console.Logic;
-    using CarbonCore.ToolFramework.Logic;
     using CarbonCore.Utils.Contracts.IoC;
     using CarbonCore.Utils.Diagnostics;
+    using CarbonCore.Utils.Edge.CommandLine.Contracts;
     using CarbonCore.Utils.IO;
     using CarbonCore.Utils.Json;
-    using CarbonCore.Utils.Edge.CommandLine.Contracts;
-    
     using MCSync.Contracts;
-
     using Newtonsoft.Json;
 
     public class Main : ConsoleApplicationBase, IMain
@@ -47,7 +43,8 @@
         // -------------------------------------------------------------------
         // Constructor
         // -------------------------------------------------------------------
-        public Main(IFactory factory) : base(factory)
+        public Main(IFactory factory) 
+            : base(factory)
         {
         }
 
@@ -56,9 +53,32 @@
         // -------------------------------------------------------------------
         public override string Name => "MCSync";
 
+        // -------------------------------------------------------------------
+        // Protected
+        // -------------------------------------------------------------------
         protected override void StartFinished()
         {
             this.Sync();
+        }
+
+        protected override bool RegisterCommandLineArguments()
+        {
+            ICommandLineSwitchDefinition definition = this.Arguments.Define("s", "sourcePath", x => this.sourcePath = new CarbonDirectory(x));
+            definition.RequireArgument = true;
+            definition.Required = true;
+            definition.Description = "The path where the data is located";
+
+            definition = this.Arguments.Define("t", "targetPath", x => this.targetPath = new CarbonDirectory(x));
+            definition.RequireArgument = true;
+            definition.Required = true;
+
+            definition = this.Arguments.Define("server", x => this.isServerMode = true);
+            definition.Description = "Sync as server mode, default is false";
+
+            definition = this.Arguments.Define("force", x => this.forceSync = true);
+            definition.Description = "Force the sync even if no indicator is present";
+
+            return true;
         }
 
         // -------------------------------------------------------------------
@@ -160,9 +180,7 @@
                 StartInfo =
                 {
                     FileName = SyncRoot.ToFile(SyncProgram).GetPath(),
-                    Arguments =
-                        $@"{(deleteTargetMismatches ? "-d" : string.Empty)} ""{this.sourcePath.GetPath()}\{syncObject
-                        }"" ""{this.targetPath.GetPath()}\{syncTarget}""",
+                    Arguments = $@"{(deleteTargetMismatches ? "-d" : string.Empty)} ""{this.sourcePath.GetPath()}\{syncObject}"" ""{this.targetPath.GetPath()}\{syncTarget}""",
                     UseShellExecute = false,
                     RedirectStandardOutput = true,
                     RedirectStandardError = true
@@ -191,26 +209,6 @@
             {
                 Trace.TraceError(stdErrorTemp);
             }
-        }
-
-        protected override bool RegisterCommandLineArguments()
-        {
-            ICommandLineSwitchDefinition definition = this.Arguments.Define("s", "sourcePath", x => this.sourcePath = new CarbonDirectory(x));
-            definition.RequireArgument = true;
-            definition.Required = true;
-            definition.Description = "The path where the data is located";
-
-            definition = this.Arguments.Define("t", "targetPath", x => this.targetPath = new CarbonDirectory(x));
-            definition.RequireArgument = true;
-            definition.Required = true;
-
-            definition = this.Arguments.Define("server", x => this.isServerMode = true);
-            definition.Description = "Sync as server mode, default is false";
-
-            definition = this.Arguments.Define("force", x => this.forceSync = true);
-            definition.Description = "Force the sync even if no indicator is present";
-
-            return true;
         }
     }
 }

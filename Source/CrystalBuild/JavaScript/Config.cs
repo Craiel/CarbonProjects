@@ -37,7 +37,7 @@
                            Templates = new[] { new CarbonDirectoryFilter(JavaScript.Constants.DataTemplateDirectory, JavaScript.Constants.FilterTemplates) },
                            Sources = new[] { new CarbonDirectoryFilter(JavaScript.Constants.SourceDirectory, JavaScript.Constants.FilterSource) },
                            Data = new[] { new CarbonDirectoryFilter(JavaScript.Constants.DataDirectory, JavaScript.Constants.FilterData) },
-                           StyleSheets = new[] {new CarbonDirectoryFilter(JavaScript.Constants.DataCssDirectory, JavaScript.Constants.FilterStyleSheet) },
+                           StyleSheets = new[] { new CarbonDirectoryFilter(JavaScript.Constants.DataCssDirectory, JavaScript.Constants.FilterStyleSheet) },
                            Contents = new[] { new CarbonDirectoryFilter(JavaScript.Constants.ContentDirectory, JavaScript.Constants.FilterContent) },
                            Images = new[] { new CarbonDirectoryFilter(JavaScript.Constants.DataImagesDirectory, JavaScript.Constants.FilterImages) },
                            SourceTarget = JavaScript.Constants.OutputDirectory.ToFile(JavaScript.Constants.DefaultProjectTarget),

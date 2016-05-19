@@ -16,7 +16,7 @@
         public SharpClass()
         {
             this.declarations = new List<string>();
-            this.methods = new ArraySegment<SharpMethod>();
+            this.methods = default(ArraySegment<SharpMethod>);
         }
 
         // -------------------------------------------------------------------
@@ -57,7 +57,7 @@
                 if (hasInheritance)
                 {
                     classString.Append(this.Inheritance);
-                    if(hasInterfaces)
+                    if (hasInterfaces)
                     {
                         classString.Append(", ");
                     }

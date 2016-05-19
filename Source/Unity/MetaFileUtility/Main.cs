@@ -37,7 +37,8 @@
         // -------------------------------------------------------------------
         // Constructor
         // -------------------------------------------------------------------
-        public Main(IFactory factory) : base(factory)
+        public Main(IFactory factory) 
+            : base(factory)
         {
             this.factory = factory;
 

@@ -61,7 +61,7 @@
     <Compile Include="Data\CompileConfig.cs" />
     <Compile Include="Data\CompileContent.cs" />
     <Compile Include="Entry.cs" />
-    <Compile Include="IoC\IoC.cs" />
+    <Compile Include="IoC\AddonCompilerModule.cs" />
     <Compile Include="Data\AddonEntry.cs" />
     <Compile Include="Logic\AddonScanner.cs" />
     <Compile Include="Logic\AddonXmlUtils.cs" />

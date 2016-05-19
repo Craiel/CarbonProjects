@@ -6,7 +6,7 @@
     using SMC.SourceLib.Contracts;
 
     public abstract class BasePostProcessor<T, TN, TL> : IPostProcessor
-        where T : ProcessingData
+        where T : BaseProcessingData
         where TN : ProcessingInstruction
         where TL : class, ILine
     {

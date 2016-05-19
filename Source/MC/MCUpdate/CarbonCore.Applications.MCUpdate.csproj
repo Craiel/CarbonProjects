@@ -55,7 +55,7 @@
     <Compile Include="Data\MCModInfo.cs" />
     <Compile Include="Data\NEModInfo.cs" />
     <Compile Include="Entry.cs" />
-    <Compile Include="IoC\IoC.cs" />
+    <Compile Include="IoC\MCUpdateModule.cs" />
     <Compile Include="Logic\Enums\MinecraftVersion.cs" />
     <Compile Include="Logic\INEModLookup.cs" />
     <Compile Include="Logic\MCModManager.cs" />

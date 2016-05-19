@@ -43,7 +43,7 @@
   <ItemGroup>
     <Compile Include="Contracts\IMain.cs" />
     <Compile Include="Entry.cs" />
-    <Compile Include="IoC\IoC.cs" />
+    <Compile Include="IoC\D3TheoryConsoleModule.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

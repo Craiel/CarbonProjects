@@ -47,7 +47,7 @@
     <Compile Include="Contracts\IConfig.cs" />
     <Compile Include="Contracts\IMain.cs" />
     <Compile Include="Entry.cs" />
-    <Compile Include="IoC\IoC.cs" />
+    <Compile Include="IoC\MCSyncLauncherModule.cs" />
     <Compile Include="Logic\LaunchConfig.cs" />
     <Compile Include="Main.cs" />
   </ItemGroup>

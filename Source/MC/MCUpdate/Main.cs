@@ -2,7 +2,6 @@
 {
     using System;
     using System.Text;
-
     using CarbonCore.Applications.MCUpdate.Data;
     using CarbonCore.Applications.MCUpdate.Logic;
     using CarbonCore.Applications.MCUpdate.Logic.Enums;
@@ -10,12 +9,10 @@
     using CarbonCore.Utils;
     using CarbonCore.Utils.Contracts.IoC;
     using CarbonCore.Utils.Diagnostics;
-    using CarbonCore.Utils.IO;
     using CarbonCore.Utils.Edge.CommandLine.Contracts;
-    
+    using CarbonCore.Utils.IO;
     using MCUpdate.Contracts;
-
-    using INEModLookup = CarbonCore.Applications.MCUpdate.Contracts.INEModLookup;
+    using INEModLookup = Logic.INEModLookup;
 
     public class Main : ConsoleApplicationBase, IMain
     {
@@ -31,7 +28,8 @@
         // -------------------------------------------------------------------
         // Constructor
         // -------------------------------------------------------------------
-        public Main(IFactory factory) : base(factory)
+        public Main(IFactory factory) 
+            : base(factory)
         {
             this.modManager = factory.Resolve<IMCModManager>();
             this.modLookup = factory.Resolve<INEModLookup>();
@@ -42,6 +40,9 @@
         // -------------------------------------------------------------------
         public override string Name => "MCUpdate";
 
+        // -------------------------------------------------------------------
+        // Protected
+        // -------------------------------------------------------------------
         protected override void StartFinished()
         {
             switch (this.mode)
@@ -74,6 +75,24 @@
             }
 
             this.CheckForUpdates();
+        }
+
+        protected override bool RegisterCommandLineArguments()
+        {
+            ICommandLineSwitchDefinition definition = this.Arguments.Define("v", "version", x => this.version = x);
+            definition.RequireArgument = true;
+            definition.Required = true;
+            definition.Description = "The version of the current Instance";
+
+            definition = this.Arguments.Define("d", "directory", x => this.instanceDirectory = new CarbonDirectory(x));
+            definition.RequireArgument = true;
+            definition.Description = "The Root directory of the instance (if not current)";
+
+            definition = this.Arguments.Define("m", "mode", x => Enum.TryParse(x, out this.mode));
+            definition.RequireArgument = true;
+            definition.Description = "mode, default is ClientInstance";
+
+            return true;
         }
 
         // -------------------------------------------------------------------
@@ -170,6 +189,7 @@
                 string formattedVersion = mod.Version.Replace('$', '_').Replace('{', '[').Replace('}', ']');
                 outputBuilder.AppendFormat($"<tr><td>{mod.Id}</td><td>{formattedFileName}</td><td>{formattedVersion}</td><td>{info.Version}</td><td><a href={info.LongUrl}>{info.LongUrl}</a></td></tr>");
             }
+
             outputBuilder.AppendLine("</table></body></html>");
 
             CarbonFile outFile = this.instanceDirectory.ToFile("MCUpdate.Result.html");
@@ -197,24 +217,6 @@
             }
 
             return MinecraftVersion.Unknown;
-        }
-
-        protected override bool RegisterCommandLineArguments()
-        {
-            ICommandLineSwitchDefinition definition = this.Arguments.Define("v", "version", x => this.version = x);
-            definition.RequireArgument = true;
-            definition.Required = true;
-            definition.Description = "The version of the current Instance";
-
-            definition = this.Arguments.Define("d", "directory", x => this.instanceDirectory = new CarbonDirectory(x));
-            definition.RequireArgument = true;
-            definition.Description = "The Root directory of the instance (if not current)";
-
-            definition = this.Arguments.Define("m", "mode", x => Enum.TryParse(x, out this.mode));
-            definition.RequireArgument = true;
-            definition.Description = "mode, default is ClientInstance";
-
-            return true;
         }
     }
 }

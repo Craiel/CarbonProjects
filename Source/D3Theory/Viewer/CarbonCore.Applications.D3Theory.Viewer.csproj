@@ -67,7 +67,7 @@
     </Page>
     <Compile Include="Contracts\ID3ViewerMain.cs" />
     <Compile Include="Entry.cs" />
-    <Compile Include="IoC\IoC.cs" />
+    <Compile Include="IoC\D3TheoryViewerModule.cs" />
     <Compile Include="D3ViewerMain.cs" />
     <Compile Include="View\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>

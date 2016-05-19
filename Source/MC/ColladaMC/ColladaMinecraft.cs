@@ -80,7 +80,7 @@
             definition.RequireArgument = true;
             definition.Description = "The source file to process";
 
-            definition = this.arguments.Define("m", "mode", x => this.mode = (ProcessingMode)(Enum.Parse(typeof(ProcessingMode), x)));
+            definition = this.arguments.Define("m", "mode", x => this.mode = (ProcessingMode)Enum.Parse(typeof(ProcessingMode), x));
             definition.RequireArgument = true;
             definition.Description = "The processing mode";
 

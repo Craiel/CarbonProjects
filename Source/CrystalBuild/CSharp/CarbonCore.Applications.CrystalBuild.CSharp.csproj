@@ -48,7 +48,7 @@
     <Compile Include="Contracts\IConfig.cs" />
     <Compile Include="Contracts\IMain.cs" />
     <Compile Include="Entry.cs" />
-    <Compile Include="IoC\IoC.cs" />
+    <Compile Include="IoC\CrystalBuildCSharpModule.cs" />
     <Compile Include="Logic\BuildLogic.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

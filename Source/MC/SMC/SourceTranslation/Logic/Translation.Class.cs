@@ -203,7 +203,7 @@
                             // See if we have an inline class or enum
                             var inlineClass = new TempClass();
                             data.TranslationStack.Push(inlineClass);
-                            if (TranslateTempClass(data, inlineClass))
+                            if (this.TranslateTempClass(data, inlineClass))
                             {
                                 data.TranslationStack.Pop();
                                 classData.AddClass(inlineClass);
@@ -386,7 +386,7 @@
                                 case JavaTermKey.BracketLeft:
                                 case JavaTermKey.BracketRight:
                                     {
-                                        HandleBracketForClassContent(declarationData, token);
+                                        this.HandleBracketForClassContent(declarationData, token);
                                         continue;
                                     }
 
@@ -428,7 +428,7 @@
 
                     case TermType.Identifier:
                         {
-                            HandleIdentifierForClassContent(declarationData, token, inThrows);
+                            this.HandleIdentifierForClassContent(declarationData, token, inThrows);
                             continue;
                         }
                 }

@@ -47,7 +47,7 @@
     <Compile Include="Contracts\IMain.cs" />
     <Compile Include="Contracts\IProjectFile.cs" />
     <Compile Include="Entry.cs" />
-    <Compile Include="IoC\IoC.cs" />
+    <Compile Include="IoC\SourceCompilationModule.cs" />
     <Compile Include="Logic\CompilationJob.cs" />
     <Compile Include="Logic\CompilationData.cs" />
     <Compile Include="Logic\CompilationCache.cs" />

@@ -20,6 +20,5 @@
         public static readonly IReadOnlyCollection<D3SkillAttribute> D3SkillAttributeValues = EnumExtensions.GetValues<D3SkillAttribute>();
 
         public static readonly IReadOnlyCollection<SimulationStat> SimulationStatValues = EnumExtensions.GetValues<SimulationStat>();
-
     }
 }

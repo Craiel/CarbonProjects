@@ -9,7 +9,7 @@
 
     public class ImageProcessor : ContentProcessor, IImageProcessor
     {
-        private static readonly  char[] SegmentSplitChars = @"\".ToCharArray();
+        private static readonly char[] SegmentSplitChars = @"\".ToCharArray();
         
         // -------------------------------------------------------------------
         // Protected
@@ -31,7 +31,7 @@
         {
             string[] segments = path.Split(SegmentSplitChars, StringSplitOptions.RemoveEmptyEntries);
             StringBuilder builder = new StringBuilder();
-            for(var i = 0; i < segments.Length; i++)
+            for (var i = 0; i < segments.Length; i++)
             {
                 string segment = segments[i];
                 if (firstSegmentUpperCase || i > 0)

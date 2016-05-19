@@ -49,7 +49,8 @@
     <Compile Include="Intermediate\TempDataSegment.cs" />
     <Compile Include="Intermediate\TempDataType.cs" />
     <Compile Include="Intermediate\TempDeclaration.cs" />
-    <Compile Include="Intermediate\TempFile.cs" />
+    <Compile Include="Intermediate\TempFileLight.cs" />
+    <Compile Include="Intermediate\TempFileFull.cs" />
     <Compile Include="Intermediate\TempFileStructureType.cs" />
     <Compile Include="Intermediate\TempFunction.cs" />
     <Compile Include="Intermediate\TempFunctionAttribute.cs" />
@@ -74,10 +75,10 @@
     <Compile Include="PostProcessors\PatcherData.cs" />
     <Compile Include="PostProcessors\PatcherInstruction.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Sharp\Sharp.Class.cs" />
-    <Compile Include="Sharp\Sharp.Data.cs" />
-    <Compile Include="Sharp\Sharp.File.cs" />
-    <Compile Include="Sharp\Sharp.Method.cs" />
+    <Compile Include="Sharp\SharpClass.cs" />
+    <Compile Include="Sharp\SharpData.cs" />
+    <Compile Include="Sharp\SharpFile.cs" />
+    <Compile Include="Sharp\SharpMethod.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="$(CCROOTDIR)\External\Newtonsoft.Json\Newtonsoft.Json.csproj">
