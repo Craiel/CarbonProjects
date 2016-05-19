@@ -75,6 +75,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -85,14 +86,19 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\CarbonCore\Source\ToolFramework\CarbonCore.ToolFramework.csproj">
+    <ProjectReference Include="$(CCSOURCEDIR)\ToolFramework\CarbonCore.ToolFramework.csproj">
       <Project>{e4643df2-d2db-4e99-ab4b-d8ce4fd94d81}</Project>
       <Name>CarbonCore.ToolFramework</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\..\CarbonCore\Source\ToolFramework\Windows\CarbonCore.ToolFramework.Windows.csproj">
+    <ProjectReference Include="$(CCSOURCEDIR)\ToolFramework\Windows\CarbonCore.ToolFramework.Windows.csproj">
       <Project>{5f12fa78-59fc-4bf5-8312-0131e0350a63}</Project>
       <Name>CarbonCore.ToolFramework.Windows</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="$(SolutionDir)\packages\StyleCop.Analyzers.1.0.0\analyzers\dotnet\cs\Newtonsoft.Json.dll" />
+    <Analyzer Include="$(SolutionDir)\packages\StyleCop.Analyzers.1.0.0\analyzers\dotnet\cs\StyleCop.Analyzers.CodeFixes.dll" />
+    <Analyzer Include="$(SolutionDir)\packages\StyleCop.Analyzers.1.0.0\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
