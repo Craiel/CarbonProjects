@@ -8,7 +8,7 @@
 
     using MCUpdate.Contracts;
 
-    using INEModLookup = CarbonCore.Applications.MCUpdate.Logic.INEModLookup;
+    using NEModLookup = CarbonCore.Applications.MCUpdate.Logic.NEModLookup;
 
     [DependsOnModule(typeof(UtilsEdgeModule))]
     [DependsOnModule(typeof(UtilsCommandLineModule))]
@@ -20,7 +20,7 @@
             this.For<IMain>().Use<Main>();
 
             this.For<IMCModManager>().Use<MCModManager>();
-            this.For<Contracts.INEModLookup>().Use<INEModLookup>();
+            this.For<Contracts.INEModLookup>().Use<NEModLookup>();
         }
     }
 }

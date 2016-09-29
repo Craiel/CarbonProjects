@@ -12,7 +12,7 @@
     using CarbonCore.Utils.Edge.CommandLine.Contracts;
     using CarbonCore.Utils.IO;
     using MCUpdate.Contracts;
-    using INEModLookup = Logic.INEModLookup;
+    using NEModLookup = Logic.NEModLookup;
 
     public class Main : ConsoleApplicationBase, IMain
     {
@@ -178,7 +178,8 @@
                 string invariantVersion = info.Version.ToLowerInvariant();
                 if (mod.Version.Equals(info.Version)
                     || mod.Version.ToLowerInvariant().Contains(invariantVersion)
-                    || mod.File.FileNameWithoutExtension.ToLowerInvariant().Contains(invariantVersion))
+                    || mod.File.FileNameWithoutExtension.ToLowerInvariant().Contains(invariantVersion)
+                    || info.Version.StartsWith(mod.Version, StringComparison.OrdinalIgnoreCase))
                 {
                     // Same version
                     continue;
@@ -213,6 +214,11 @@
                 case "1.9":
                     {
                         return MinecraftVersion.V1_9;
+                    }
+
+                case "1.10.2":
+                    {
+                        return MinecraftVersion.V1_10_2;
                     }
             }
 

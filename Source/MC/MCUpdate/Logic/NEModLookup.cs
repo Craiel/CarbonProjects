@@ -9,7 +9,7 @@
     using CarbonCore.Utils.Diagnostics;
     using CarbonCore.Utils.Json;
 
-    public class INEModLookup : Contracts.INEModLookup
+    public class NEModLookup : Contracts.INEModLookup
     {
         private readonly IDictionary<string, NEModInfo> nameLookup;
 
@@ -20,7 +20,7 @@
         // -------------------------------------------------------------------
         // Constructor
         // -------------------------------------------------------------------
-        public INEModLookup()
+        public NEModLookup()
         {
             this.Mods = new List<NEModInfo>();
 
@@ -76,6 +76,12 @@
                     case MinecraftVersion.V1_9:
                     {
                         url = Constants.ServerAddress + string.Format(Constants.ServerFilePattern, "1.9");
+                        break;
+                    }
+
+                    case MinecraftVersion.V1_10_2:
+                    {
+                        url = Constants.ServerAddress + string.Format(Constants.ServerFilePattern, "1.10.2");
                         break;
                     }
 
