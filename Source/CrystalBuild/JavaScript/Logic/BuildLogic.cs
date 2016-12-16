@@ -39,6 +39,8 @@
             var processor = this.factory.Resolve<IJavaScriptProcessor>();
             Diagnostic.Assert(processor != null);
 
+            processor.KeepComments = context.KeepComments;
+
             processor.SetContext(context);
             foreach (CarbonFileResult file in sources)
             {

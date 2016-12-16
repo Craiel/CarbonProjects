@@ -18,6 +18,8 @@
         // -------------------------------------------------------------------
         public bool IsDebug { get; set; }
 
+        public bool KeepComments { get; set; }
+
         public bool ExportSourceAsModule { get; set; }
         
         public BuildTargetPlatform TargetPlatform { get; private set; }

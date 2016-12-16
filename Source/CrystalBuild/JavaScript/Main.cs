@@ -183,6 +183,7 @@
                         new JavaScriptBuildingContext(cache, this.config.Current.TargetPlatform)
                         {
                             Name = this.config.Current.Name,
+                            KeepComments = this.config.Current.KeepComments,
                             IsDebug = this.useDebug,
                             ExportSourceAsModule = this.config.Current.ExportSourceAsModule
                         });

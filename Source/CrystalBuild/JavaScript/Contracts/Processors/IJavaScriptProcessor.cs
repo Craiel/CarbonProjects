@@ -4,5 +4,6 @@
 
     public interface IJavaScriptProcessor : IContentProcessor
     {
+        bool KeepComments { get; set; }
     }
 }

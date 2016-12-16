@@ -4,9 +4,7 @@
     using CarbonCore.Utils;
     using CarbonCore.Utils.IO;
     using CarbonCore.Utils.Json;
-
-    using Constants = CarbonCore.Applications.CrystalBuild.JavaScript.Constants;
-
+    
     public class Config : JsonConfig<BuildConfig>, IConfig
     {
         // -------------------------------------------------------------------
@@ -34,6 +32,7 @@
             return new BuildConfig
                        {
                            Name = JavaScript.Constants.DefaultProjectName,
+                           KeepComments = true,
                            Templates = new[] { new CarbonDirectoryFilter(JavaScript.Constants.DataTemplateDirectory, JavaScript.Constants.FilterTemplates) },
                            Sources = new[] { new CarbonDirectoryFilter(JavaScript.Constants.SourceDirectory, JavaScript.Constants.FilterSource) },
                            Data = new[] { new CarbonDirectoryFilter(JavaScript.Constants.DataDirectory, JavaScript.Constants.FilterData) },

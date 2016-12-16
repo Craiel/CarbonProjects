@@ -14,6 +14,8 @@
 
         public string Name { get; set; }
 
+        public bool KeepComments { get; set; }
+
         public bool ExportSourceAsModule { get; set; }
 
         [JsonConverter(typeof(StringEnumConverter))]

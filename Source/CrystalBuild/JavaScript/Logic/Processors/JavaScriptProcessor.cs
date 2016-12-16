@@ -35,7 +35,12 @@
         {
             this.hashCollisionTest = new Dictionary<string, string>();
         }
-        
+
+        // -------------------------------------------------------------------
+        // Public
+        // -------------------------------------------------------------------
+        public bool KeepComments { get; set; }
+
         // -------------------------------------------------------------------
         // Protected
         // -------------------------------------------------------------------
@@ -74,6 +79,12 @@
 
                 if (this.ProcessComment(context))
                 {
+                    if (this.KeepComments)
+                    {
+                        // Copy over the line if we want to keep all comments
+                        trimmedContent.AppendLine(context.OutputLine);
+                    }
+
                     continue;
                 }
 
