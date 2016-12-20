@@ -77,6 +77,8 @@
 
         public void BuildTemplates(IList<CarbonFileResult> sources, CarbonFile target, JavaScriptBuildingContext context)
         {
+            this.factory.Resolve<ITemplateProcessor>().ExportAsModule = context.ExportSourceAsModule;
+
             this.DoBuildMultipleToOne<ITemplateProcessor>("Templates", sources, target, context);
         }
 

@@ -4,5 +4,6 @@
 
     public interface ITemplateProcessor : IContentProcessor
     {
+        bool ExportAsModule { get; set; }
     }
 }

@@ -17,7 +17,7 @@
     public class Main : ConsoleApplicationBase, IMain
     {
         // --compilation_level ADVANCED_OPTIMIZATIONS
-        public const string ClosureCompilerCommand = @"-jar ""{0}compiler.jar""  --js ""{1}"" --js_output_file {2} --language_in=ECMASCRIPT5 --externs ""{3}""";
+        public const string ClosureCompilerCommand = @"-jar ""{0}compiler.jar""  --js ""{1}"" --js_output_file {2} {3} --externs ""{4}""";
         
         private readonly IConfig config;
         private readonly IBuildLogic logic;
@@ -190,7 +190,13 @@
 
                     if (this.useClosure)
                     {
-                        var info = new ProcessStartInfo("java.exe", string.Format(ClosureCompilerCommand, RuntimeInfo.Assembly.GetDirectory().ToRelative<CarbonDirectory>(RuntimeInfo.WorkingDirectory), targetFile, targetFileClosure, RuntimeInfo.WorkingDirectory.ToFile("externs.js")))
+                        string closureArgs = "--language_in=ECMASCRIPT5";
+                        if (!string.IsNullOrEmpty(this.config.Current.CustomClosureCompilerCommands))
+                        {
+                            closureArgs = this.config.Current.CustomClosureCompilerCommands;
+                        }
+
+                        var info = new ProcessStartInfo("java.exe", string.Format(ClosureCompilerCommand, RuntimeInfo.Assembly.GetDirectory().ToRelative<CarbonDirectory>(RuntimeInfo.WorkingDirectory), targetFile, targetFileClosure, closureArgs, RuntimeInfo.WorkingDirectory.ToFile("externs.js")))
                                        {
                                            UseShellExecute = false,
                                            WorkingDirectory = RuntimeInfo.WorkingDirectory.ToString()

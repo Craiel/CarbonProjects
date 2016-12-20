@@ -18,6 +18,8 @@
 
         public bool ExportSourceAsModule { get; set; }
 
+        public string CustomClosureCompilerCommands { get; set; }
+
         [JsonConverter(typeof(StringEnumConverter))]
         public BuildTargetPlatform TargetPlatform { get; set; }
 

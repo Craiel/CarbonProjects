@@ -33,6 +33,8 @@
                        {
                            Name = JavaScript.Constants.DefaultProjectName,
                            KeepComments = true,
+                           ExportSourceAsModule = true,
+                           CustomClosureCompilerCommands = string.Empty,
                            Templates = new[] { new CarbonDirectoryFilter(JavaScript.Constants.DataTemplateDirectory, JavaScript.Constants.FilterTemplates) },
                            Sources = new[] { new CarbonDirectoryFilter(JavaScript.Constants.SourceDirectory, JavaScript.Constants.FilterSource) },
                            Data = new[] { new CarbonDirectoryFilter(JavaScript.Constants.DataDirectory, JavaScript.Constants.FilterData) },

@@ -9,8 +9,11 @@
 
     public class TemplateProcessor : ContentProcessor, ITemplateProcessor
     {
-        private const string DataPrefix = @"declare(""TemplateContent"", function() { return {";
-        private const string DataSuffix = "}; });";
+        private const string DataPrefix = "modules.templates = {";
+        private const string DataSuffix = "};";
+
+        private const string DataPrefixModule = @"declare(""TemplateContent"", function() { return {";
+        private const string DataSuffixModule = "}; });";
         
         private static readonly char[] StripFromTemplates = { '\n', '\r', '\t' };
         
@@ -22,9 +25,12 @@
         public TemplateProcessor()
         {
             this.templateSegments = new List<string>();
-
-            this.AppendLine(DataPrefix);
         }
+
+        // -------------------------------------------------------------------
+        // Public
+        // -------------------------------------------------------------------
+        public bool ExportAsModule { get; set; }
 
         // -------------------------------------------------------------------
         // Protected
@@ -39,6 +45,15 @@
 
         protected override void PreprocessData()
         {
+            if (this.ExportAsModule)
+            {
+                this.AppendLine(DataPrefixModule);
+            }
+            else
+            {
+                this.AppendLine(DataPrefix);
+            }
+
             for (int i = 0; i < this.templateSegments.Count; i++)
             {
                 this.AppendFormat("\t{0}", this.templateSegments[i]);
@@ -53,7 +68,14 @@
 
         protected override string PostProcessData(string data)
         {
-            return string.Concat(data, Environment.NewLine, DataSuffix);
+            if (this.ExportAsModule)
+            {
+                return string.Concat(data, Environment.NewLine, DataSuffixModule);
+            }
+            else
+            {
+                return string.Concat(data, Environment.NewLine, DataSuffix);
+            }
         }
     }
 }
