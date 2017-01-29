@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarbonCore.Applications.CFS.UI", "CFS\CarbonCore.Applications.CFS.UI.csproj", "{2FF7D9C8-1A44-4EFD-B982-90F44A0A338B}"
 EndProject
@@ -96,6 +96,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Unity", "Unity", "{BE76584D-F452-430B-94DB-D3FDC2A0E19A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WoW", "WoW", "{FD70B901-DDD7-4A96-8CCA-13FE2BD991F2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonoGame.Math", "..\..\CarbonCore\External\MonoGame.Math\MonoGame.Math.csproj", "{67858D44-B6CE-4148-9E9D-61BE8F743FD1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -385,6 +387,14 @@ Global
 		{4C2BCF53-AA2B-450C-8D25-8116306FBC6B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4C2BCF53-AA2B-450C-8D25-8116306FBC6B}.Release|x64.ActiveCfg = Release|Any CPU
 		{4C2BCF53-AA2B-450C-8D25-8116306FBC6B}.Release|x64.Build.0 = Release|Any CPU
+		{67858D44-B6CE-4148-9E9D-61BE8F743FD1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67858D44-B6CE-4148-9E9D-61BE8F743FD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67858D44-B6CE-4148-9E9D-61BE8F743FD1}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{67858D44-B6CE-4148-9E9D-61BE8F743FD1}.Debug|x64.Build.0 = Debug|Any CPU
+		{67858D44-B6CE-4148-9E9D-61BE8F743FD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67858D44-B6CE-4148-9E9D-61BE8F743FD1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67858D44-B6CE-4148-9E9D-61BE8F743FD1}.Release|x64.ActiveCfg = Release|Any CPU
+		{67858D44-B6CE-4148-9E9D-61BE8F743FD1}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -435,5 +445,6 @@ Global
 		{4C2BCF53-AA2B-450C-8D25-8116306FBC6B} = {BE76584D-F452-430B-94DB-D3FDC2A0E19A}
 		{BE76584D-F452-430B-94DB-D3FDC2A0E19A} = {554A9747-993D-48D9-98DB-69840178C64E}
 		{FD70B901-DDD7-4A96-8CCA-13FE2BD991F2} = {554A9747-993D-48D9-98DB-69840178C64E}
+		{67858D44-B6CE-4148-9E9D-61BE8F743FD1} = {90C3F78D-6CC7-4264-B2DE-F3545F0ABAF2}
 	EndGlobalSection
 EndGlobal
