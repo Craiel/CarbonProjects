@@ -64,10 +64,6 @@
       <Project>{eeea67f9-9089-481d-a4dc-0966dec9fd7d}</Project>
       <Name>Newtonsoft.Json</Name>
     </ProjectReference>
-    <ProjectReference Include="$(CCSOURCEDIR)\Processing\CarbonCore.Processing.csproj">
-      <Project>{4db8d196-1f50-493f-9ffb-40e1e503ee87}</Project>
-      <Name>CarbonCore.Processing</Name>
-    </ProjectReference>
     <ProjectReference Include="$(CCSOURCEDIR)\ToolFramework\CarbonCore.ToolFramework.csproj">
       <Project>{e4643df2-d2db-4e99-ab4b-d8ce4fd94d81}</Project>
       <Name>CarbonCore.ToolFramework</Name>
