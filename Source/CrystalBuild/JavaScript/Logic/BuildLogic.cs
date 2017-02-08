@@ -7,7 +7,7 @@
     using CarbonCore.Applications.CrystalBuild.JavaScript.Contracts;
     using CarbonCore.Applications.CrystalBuild.JavaScript.Contracts.Processors;
     using CarbonCore.CrystalBuild.Contracts;
-    using CarbonCore.CrystalBuild.Logic;
+    using CarbonCore.CrystalBuild.Java.Logic;
     using CarbonCore.Utils.Contracts.IoC;
     using CarbonCore.Utils.Diagnostics;
     using CarbonCore.Utils.IO;

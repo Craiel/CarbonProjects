@@ -3,10 +3,11 @@
     using System.Collections.Generic;
     
     using CarbonCore.CrystalBuild.Contracts;
+    using CarbonCore.CrystalBuild.Sharp.Logic;
     using CarbonCore.Utils.IO;
 
     public interface IBuildLogic
     {
-        void BuildProjectFile(IList<CarbonFileResult> sources, CarbonFile target, IProcessingContext context);
+        void BuildProjectFile(IList<CarbonFile> sources, CarbonDirectory projectRoot);
     }
 }

@@ -3,7 +3,7 @@
     using System.Collections.Generic;
 
     using CarbonCore.Applications.CrystalBuild.JavaScript.Contracts.Processors;
-    using CarbonCore.CrystalBuild.Logic;
+    using CarbonCore.CrystalBuild.Java.Logic;
     using CarbonCore.Processing.Processors.Excel;
     using CarbonCore.Utils.Diagnostics;
     using CarbonCore.Utils.IO;

@@ -4,7 +4,7 @@
     using System.Text;
 
     using CarbonCore.Applications.CrystalBuild.JavaScript.Contracts.Processors;
-    using CarbonCore.CrystalBuild.Logic;
+    using CarbonCore.CrystalBuild.Java.Logic;
     using CarbonCore.Utils.IO;
 
     public class ImageProcessor : ContentProcessor, IImageProcessor

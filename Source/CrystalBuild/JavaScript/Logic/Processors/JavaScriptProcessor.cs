@@ -6,7 +6,7 @@
     using System.Text.RegularExpressions;
 
     using CarbonCore.Applications.CrystalBuild.JavaScript.Contracts.Processors;
-    using CarbonCore.CrystalBuild.Logic;
+    using CarbonCore.CrystalBuild.Java.Logic;
     using CarbonCore.Utils.Edge;
     using CarbonCore.Utils.I18N;
     using CarbonCore.Utils.IO;
