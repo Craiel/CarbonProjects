@@ -1,5 +1,6 @@
 ﻿namespace CarbonCore.Applications.CrystalBuild.CSharp.Logic
 {
+    using System;
     using System.Collections.Generic;
     
     using CarbonCore.Applications.CrystalBuild.CSharp.Contracts;
@@ -61,6 +62,10 @@
                     }
 
                     LuaExecutionResult result = configRuntime.Execute(fileToBuild);
+                    if (!result.Success)
+                    {
+                        throw new InvalidOperationException("Build failed!");
+                    }
                 }
                 
                 Diagnostic.Info(" --> Finished in {0}", Timer.TimeToTimeSpan(region.ElapsedTicks));
@@ -71,7 +76,7 @@
         private bool PrepareConfigurationRuntime(CrystalBuildContext context, CarbonFile file, CarbonDirectory projectRoot)
         {
             context.ProjectRoot = projectRoot;
-            context.BuildDir = file.GetDirectory();
+            context.BuildDir = file.ToAbsolute<CarbonFile>(context.ProjectRoot).GetDirectory();
 
             LuaPreProcessor.DefineVariableFromPath("PROJECT_ROOT", context.ProjectRoot);
             LuaPreProcessor.DefineVariableFromPath("BUILD_DIR", context.BuildDir);
